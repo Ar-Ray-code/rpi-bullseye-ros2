@@ -1,4 +1,6 @@
 #!/bin/bash
+
+# Setting up the environments
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 _USER=${SCRIPT_DIR##*home/}
 USER=${_USER%%/*}
@@ -6,6 +8,7 @@ USER=${_USER%%/*}
 ROS_BUILD_DIR="/home/$USER/ros2_galactic"
 ROS_INSTALL_DIR="/home/$USER/galactic"
 
+# ==============================================================================
 sudo bash $SCRIPT_DIR/install-list/apt.bash $SCRIPT_DIR/install-list/apt-list.txt
 pip3 install -r $SCRIPT_DIR/install-list/requirements.txt
 
@@ -22,7 +25,8 @@ else
     echo "$ROS_BUILD_DIR/src is exist"
 fi
 
-cp $SCRIPT_DIR/rcutils/CMakeLists.txt $ROS_BUILD_DIR/src/rcutils/
+# rewrite rcutils's CMakeLists.txt
+cp $SCRIPT_DIR/rcutils/CMakeLists.txt $ROS_BUILD_DIR/src/ros2/rcutils/CMakeLists.txt
 
 # Build ROS2
 cd $ROS_BUILD_DIR/
@@ -39,3 +43,10 @@ rviz_visual_testing_framework \
 rviz2
 
 rm -rf $ROS_BUILD_DIR
+
+# Unset Environment
+unset SCRIPT_DIR
+unset _USER
+unset USER
+unset ROS_BUILD_DIR
+unset ROS_INSTALL_DIR
