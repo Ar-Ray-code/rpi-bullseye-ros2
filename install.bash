@@ -5,8 +5,14 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 _USER=${SCRIPT_DIR##*home/}
 USER=${_USER%%/*}
 
-ROS_INSTALL_DIR="/home/$USER/galactic"
 TARGET_ZIP="galactic-armv7l"
+
+ROS_INSTALL_DIR=$1
+if [ -z "$ROS_INSTALL_DIR" ]; then
+    ROS_INSTALL_DIR="/home/$USER/galactic"
+fi
+
+echo "ROS_INSTALL_DIR: $ROS_INSTALL_DIR"
 
 # ==============================================================================
 sudo bash $SCRIPT_DIR/install-list/apt.bash $SCRIPT_DIR/install-list/apt-list.txt

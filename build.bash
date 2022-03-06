@@ -6,7 +6,14 @@ _USER=${SCRIPT_DIR##*home/}
 USER=${_USER%%/*}
 
 ROS_BUILD_DIR="/home/$USER/ros2_galactic"
-ROS_INSTALL_DIR="/home/$USER/galactic"
+
+ROS_INSTALL_DIR=$1
+if [ -z "$ROS_INSTALL_DIR" ]; then
+    ROS_INSTALL_DIR="/home/$USER/galactic"
+fi
+
+echo "ROS_BUILD_DIR: $ROS_BUILD_DIR"
+echo "ROS_INSTALL_DIR: $ROS_INSTALL_DIR"
 
 # ==============================================================================
 sudo bash $SCRIPT_DIR/install-list/apt.bash $SCRIPT_DIR/install-list/apt-list.txt
