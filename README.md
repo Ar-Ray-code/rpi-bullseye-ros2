@@ -2,8 +2,6 @@
 
 Build ROS2-Galactic for Raspbian-bullseye
 
-<img src="images_for_readme/turtle.png" alt="turtle" style="zoom:33%;" />
-
 ## Overview
 
 Scripts for build ROS2 to running on Raspbian.
