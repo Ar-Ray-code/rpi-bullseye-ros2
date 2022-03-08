@@ -27,6 +27,7 @@ rm $TARGET_ZIP.zip
 
 # sudo pip install
 sudo pip install vcstool colcon-common-extensions
+rm -rf $SCRIPT_DIR/rpi-bullseye-ros2
 
 # Unset Environment
 unset SCRIPT_DIR
