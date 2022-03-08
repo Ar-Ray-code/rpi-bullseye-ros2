@@ -31,7 +31,7 @@ source $HOME/galactic/setup.bash
 
 ## Install
 
-On Raspberry Pi Bullseye
+On Raspberry Pi Bullseye, run only following command.
 
 ```bash
 curl -s https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash | bash
