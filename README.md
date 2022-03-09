@@ -37,10 +37,10 @@ On Raspberry Pi Bullseye, run only following command.
 curl -s https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash | bash
 ```
 
-Load ROS2
+Load ROS2 (Galactic)
 
 ```bash
-source $HOME/galactic/setup.bash
+source /opt/ros/galactic/setup.bash
 ```
 
 ## About author
