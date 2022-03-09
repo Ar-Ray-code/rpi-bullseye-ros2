@@ -40,7 +40,7 @@ wget $URL || { echo "Check the github release and see if the file is there." && 
 
 # extract from zip and copy to $ROS_INSTALL_DIR
 sudo mkdir -p $ROS_INSTALL_DIR
-unzip $TARGET_ZIP -d $ROS_INSTALL_DIR
+sudo unzip $TARGET_ZIP -d $ROS_INSTALL_DIR
 # Delete zip and unset env
 rm $TARGET_ZIP
 unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO
@@ -50,7 +50,7 @@ cd $SCRIPT_DIR
 git clone https://github.com/Ar-Ray-code/rpi-bullseye-ros2.git
 
 sudo bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt.bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt-list.txt
-pip3 install -r $SCRIPT_DIR/install-list/requirements.txt
+pip3 install -r $SCRIPT_DIR/rpi-bullseye-ros2/install-list/requirements.txt
 sudo pip install vcstool colcon-common-extensions
 # Delete downloaded repository and unset env
 rm -rf $SCRIPT_DIR/rpi-bullseye-ros2
