@@ -33,7 +33,7 @@ echo "============================================"
 TARGET_ZIP=$TARGET_ZIP.zip
 
 # Download zip ===========================================================================
-sudo apt install git wget
+sudo apt install git wget -y
 URL="https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/$TARGET_DISTRO-$VERSION/$TARGET_ZIP"
 
 wget $URL || { echo "Check the github release and see if the file is there." && unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO SCRIPT_DIR && exit 1; }
