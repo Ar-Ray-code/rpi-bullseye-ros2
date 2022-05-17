@@ -2,6 +2,8 @@
 
 Build ROS2-Galactic for Raspbian-bullseye
 
+> Note: Compiled for Raspbian-bullseye (32bit)
+
 ## Overview
 
 Scripts for build ROS2 to running on Raspbian.
