@@ -20,7 +20,7 @@ sudo bash $SCRIPT_DIR/install-list/apt.bash $SCRIPT_DIR/install-list/apt-list.tx
 pip3 install -r $SCRIPT_DIR/install-list/requirements.txt
 
 # sudo pip install
-sudo pip install vcstool colcon-common-extensions
+sudo pip3 install vcstool colcon-common-extensions
 
 # if ~/ros2_galactic/src is exist, skip
 if [ ! -d $ROS_BUILD_DIR/src ]; then

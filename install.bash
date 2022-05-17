@@ -51,7 +51,7 @@ git clone https://github.com/Ar-Ray-code/rpi-bullseye-ros2.git
 
 sudo bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt.bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt-list.txt
 pip3 install -r $SCRIPT_DIR/rpi-bullseye-ros2/install-list/requirements.txt
-sudo pip install vcstool colcon-common-extensions
+sudo pip3 install vcstool colcon-common-extensions
 # Delete downloaded repository and unset env
 rm -rf $SCRIPT_DIR/rpi-bullseye-ros2
 unset SCRIPT_DIR
