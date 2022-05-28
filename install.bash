@@ -13,7 +13,7 @@ ARCH=$2
 VERSION=$3
 ROS_INSTALL_DIR=$4
 
-if [ -z "$TARGET_DISTRO" ];     then TARGET_DISTRO="galactic";      fi
+if [ -z "$TARGET_DISTRO" ];     then TARGET_DISTRO="humble";      fi
 if [ -z "$ARCH" ];              then ARCH="armv7l";                 fi
 if [ -z "$VERSION" ];           then VERSION="0.1.0";               fi
 if [ -z "$ROS_INSTALL_DIR" ];   then ROS_INSTALL_DIR="/opt/ros";    fi
