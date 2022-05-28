@@ -29,3 +29,4 @@ libopencv-dev
 pyqt5-dev
 libbullet-dev
 sip-dev
+python3-pyqt5

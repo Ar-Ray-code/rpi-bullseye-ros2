@@ -5,11 +5,13 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 _USER=${SCRIPT_DIR##*home/}
 USER=${_USER%%/*}
 
-ROS_BUILD_DIR="/home/$USER/ros2_galactic"
+TARGET_DISTRO=$1
 
-ROS_INSTALL_DIR=$1
+ROS_BUILD_DIR="/home/$USER/ros2_"$TARGET_DISTRO
+
+ROS_INSTALL_DIR=$2
 if [ -z "$ROS_INSTALL_DIR" ]; then
-    ROS_INSTALL_DIR="/home/$USER/galactic"
+    ROS_INSTALL_DIR="/home/$USER/"$TARGET_DISTRO
 fi
 
 echo "ROS_BUILD_DIR: $ROS_BUILD_DIR"
@@ -22,11 +24,11 @@ pip3 install -r $SCRIPT_DIR/install-list/requirements.txt
 # sudo pip install
 sudo pip3 install vcstool colcon-common-extensions
 
-# if ~/ros2_galactic/src is exist, skip
+# if ~/ros2_${TARGET_DISTRO}/src is exist, skip
 if [ ! -d $ROS_BUILD_DIR/src ]; then
     mkdir -p $ROS_BUILD_DIR/src
     cd $ROS_BUILD_DIR
-    wget https://raw.githubusercontent.com/ros2/ros2/galactic/ros2.repos
+    wget https://raw.githubusercontent.com/ros2/ros2/$TARGET_DISTRO/ros2.repos
     vcs import src < ros2.repos
 else
     echo "$ROS_BUILD_DIR/src is exist"
@@ -50,7 +52,7 @@ rviz_visual_testing_framework \
 rviz2
 
 # colcon build --continue-on-error \
-# --install-base ~/galactic \
+# --install-base ~/${TARGET_DISTRO} \
 # --packages-skip-build-finished \
 # --packages-skip-up-to \
 # rviz_ogre_vendor \
