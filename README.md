@@ -6,6 +6,8 @@ Scripts for build ROS2 to running on Raspbian.
 
 > Note: Compiled for Raspbian-bullseye (32bit)
 
+<br>
+
 ## Support
 
 | Version | aarch64 | arm7l |
@@ -13,10 +15,13 @@ Scripts for build ROS2 to running on Raspbian.
 | humble | ✔ | ✔ |
 | galactic | | ✔ |
 
-- RViz : ❌
-- rosbag : ❌
-- rqt : ❌
+### ❌ Excluded packages ❌
 
+- RViz
+- rosbag
+- rqt
+
+<br>
 
 ## Install
 
@@ -32,12 +37,16 @@ Load ROS2
 source /opt/ros/humble/setup.bash
 ```
 
+<br>
+
 ## Build (Package exclusions)
 
 ```bash
 export ROS_INSTALL_DIR=~/ros2_install
 colcon build --continue-on-error --install-base $ROS_INSTALL_DIR --packages-skip-up-to rviz_ogre_vendor rviz_rendering rviz_common rviz_rendering_tests rviz_visual_testing_framework rviz2 rosbag2_transpor rosbag2_transport rosbag2_py ros2bag rqt_bag
 ```
+
+<br>
 
 ## About author
 
