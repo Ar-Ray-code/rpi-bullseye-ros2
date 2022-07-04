@@ -2,6 +2,8 @@
 
 Build ROS2-Humble for Raspbian-bullseye
 
+Scripts for build ROS2 to running on Raspbian.
+
 > Note: Compiled for Raspbian-bullseye (32bit)
 
 ## Support
@@ -15,32 +17,6 @@ Build ROS2-Humble for Raspbian-bullseye
 - rosbag : ❌
 - rqt : ❌
 
-## Overview
-
-Scripts for build ROS2 to running on Raspbian.
-
-Support : ROS2 Galactic Desktop
-
-> Rviz2 and Rqt are not supported. (view issue)
-
-
-<!-- 
-## Build
-
-On Raspberry Pi Bullseye
-
-```bash
-git clone https://github.com/Ar-Ray-code/rpi-bullseye-ros2.git -b galactic
-cd rpi-bullseye-ros2
-bash build.bash $HOME
-> password
-``` -->
-
-<!-- Load ROS2
-
-```bash
-source $HOME/galactic/setup.bash
-``` -->
 
 ## Install
 
