@@ -33,6 +33,7 @@ echo "============================================"
 TARGET_ZIP=$TARGET_ZIP.zip
 
 # Download zip ===========================================================================
+sudo apt update
 sudo apt install git wget -y
 URL="https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-$VERSION/$TARGET_ZIP"
 
