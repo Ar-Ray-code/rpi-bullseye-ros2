@@ -32,7 +32,10 @@ On Raspberry Pi Bullseye, run only following command.
 curl -s https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash | bash
 ```
 
+or
+
 ```bash
+# default : (humble, aarch64)
 wget https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash
 bash install galactic aarch64 0.1.0 /opt/ros
 ```
