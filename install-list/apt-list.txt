@@ -1,3 +1,5 @@
+pciutils
+xterm
 libacl1-dev
 libtinyxml2-dev
 bison
@@ -6,7 +8,6 @@ libeigen3-dev
 libxrandr-dev
 libxcursor-dev
 libsdl2-dev
-libpthreads-mingw-w64
 doxygen
 liblog4cxx-dev
 python3-lark
@@ -19,7 +20,7 @@ python3-pytest-cov
 python3-rosdep
 python3-setuptools
 wget
-libpthreads-mingw-w64
+mingw-w64-i686-dev
 curl
 gnupg
 lsb-release
