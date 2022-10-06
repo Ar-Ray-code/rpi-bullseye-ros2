@@ -21,7 +21,7 @@
 git clone https://github.com/Ar-Ray-code/rpi-bullseye-ros2.git
 cd rpi-bullseye-ros2/build
 
-bash create_ros.bash humble
+bash create_ros2.bash humble
 ```
 After all builds are successful
 

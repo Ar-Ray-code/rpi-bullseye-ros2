@@ -2,7 +2,7 @@
 
 echo "ROS2 builder for the Raspberry Pi 🍓 (debian-bullseye-armv8)"
 
-SCRIPT_DIR=$(dirname "$0")
+SCRIPT_DIR=`realpath $(dirname "$0")`
 DISTRO=$1
 
 if [ -z "$DISTRO" ]; then
@@ -21,9 +21,10 @@ fi
 docker run -it --rm --net=host \
     -v $SCRIPT_DIR/ros2_ws:/ros2_ws \
     ros2-${DISTRO}-aarch64 \
-    /bin/bash -c "bash /ros2_ws/create_ros2.bash ${DISTRO}"
+    /bin/bash -c "bash /ros2_ws/build.bash ${DISTRO}"
 
 cd $SCRIPT_DIR/ros2_ws
+
 zip -r ${SCRIPT_DIR}/${DISTRO}-aarch64.zip ${DISTRO}
 if [ $? -ne 0 ]; then
     echo "Failed to zip."
