@@ -5,6 +5,8 @@ echo "ROS2 builder for the Raspberry Pi 🍓 (debian-bullseye-armv8)"
 SCRIPT_DIR=`realpath $(dirname "$0")`
 DISTRO=$1
 
+mkdir -p ${SCRIPT_DIR}/ros2_ws/src
+
 if [ -z "$DISTRO" ]; then
     DISTRO=humble
     echo "No distro specified, using $DISTRO"
