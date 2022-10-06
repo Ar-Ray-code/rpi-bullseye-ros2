@@ -10,7 +10,6 @@ fi
 wget https://raw.githubusercontent.com/ros2/ros2/${DISTRO}/ros2.repos
 vcs import src < ros2.repos
 
-export COLCON_OPTION="colcon build --continue-on-error --install-base $(pwd)/${DISTRO}/ --packages-skip-build-finished --packages-select"
 COLCON_OPTION="colcon build --continue-on-error --install-base $(pwd)/${DISTRO}/ --packages-skip-build-finished --packages-select"
 
 BUILD=`echo "$COLCON_OPTION "{\
@@ -38,6 +37,10 @@ BUILD=`echo "$COLCON_OPTION "{\
 }" &&"`
 
 ${BUILD}
+if [ $? -ne 0 ]; then
+    echo "Build failed"
+    exit 1
+fi
 
 
 echo "All packages built successfully"
