@@ -10,10 +10,29 @@ Scripts for build ROS2 to running on Raspbian.
 
 ## Support
 
+### Latest : ros2-0.2.0
+
+- [ros2-0.2.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.2.0)
+
+| Version | aarch64| Download |
+| --- | --- | --- |
+| humble | ✔ | URL |
+| galactic | | |
+
+<br>
+
+<details><summary>ros2-0.1.0</summary>
+
+- [ros2-0.1.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.1.0)
+
 | Version | aarch64 | arm7l |
 | --- | --- | --- |
 | humble | ✔ | ✔ |
 | galactic | | ✔ |
+
+</details>
+
+<br>
 
 ### ❌ Excluded packages ❌
 
@@ -48,12 +67,9 @@ source /opt/ros/humble/setup.bash
 
 <br>
 
-## Build (Package exclusions)
+## Build
 
-```bash
-export ROS_INSTALL_DIR=~/ros2_install
-colcon build --continue-on-error --install-base $ROS_INSTALL_DIR --packages-skip-up-to rviz_ogre_vendor rviz_rendering rviz_common rviz_rendering_tests rviz_visual_testing_framework rviz2 rosbag2_transpor rosbag2_transport rosbag2_py ros2bag rqt_bag
-```
+[README](./build/README.md)
 
 <br>
 
