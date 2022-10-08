@@ -4,13 +4,15 @@ Build ROS2-Humble for Raspbian-bullseye
 
 Scripts for build ROS2 to running on Raspbian (64bit).
 
+![](./images_for_readme//rviz_rpi.jpg)
+
 <br>
 
 ## Support
 
 ### Latest : ros2-0.2.0
 
-- [ros2-0.2.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.2.0)
+[ros2-0.2.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.2.0)
 
 | Version | aarch64 |
 | --- | --- |
@@ -21,7 +23,16 @@ Scripts for build ROS2 to running on Raspbian (64bit).
 
 <details><summary>ros2-0.1.0</summary>
 
-- [ros2-0.1.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.1.0)
+[ros2-0.1.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.1.0)
+
+
+### ❌ Excluded packages ❌
+
+- RViz
+- rosbag
+- rqt
+
+<br>
 
 | Version | aarch64 | arm7l |
 | --- | --- | --- |
@@ -31,12 +42,6 @@ Scripts for build ROS2 to running on Raspbian (64bit).
 </details>
 
 <br>
-
-### ❌ Excluded packages ❌
-
-- RViz
-- rosbag
-- rqt
 
 <br>
 
