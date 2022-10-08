@@ -44,8 +44,14 @@ RUN apt-get update && \
 	pyqt5-dev \
 	libbullet-dev \
 	sip-dev \
+	libxaw7-dev \
 	python3-pyqt5 \
-	python3-numpy && \
+	python3-numpy \
+	python3-pydot \
+	python3-pyqt5.qtsvg \
+	python3-netifaces \
+	libfreetype-dev \
+	libresource-retriever-dev && \
 	rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
@@ -65,8 +71,7 @@ RUN pip install \
 	setuptools \
 	importlib-metadata \
 	importlib-resources \
-	lark-parser \
-    netifaces
+	lark-parser
 
 RUN pip install vcstool colcon-common-extensions
 
