@@ -32,3 +32,9 @@ libbullet-dev
 sip-dev
 python3-pyqt5
 python3-numpy
+python3-pydot
+python3-pyqt5.qtsvg
+libfreetype-dev
+libresource-retriever-dev
+libxaw7-dev
+python3-netifaces
