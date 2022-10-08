@@ -2,9 +2,7 @@
 
 Build ROS2-Humble for Raspbian-bullseye
 
-Scripts for build ROS2 to running on Raspbian.
-
-> Note: Compiled for Raspbian-bullseye (32bit)
+Scripts for build ROS2 to running on Raspbian (64bit).
 
 <br>
 
@@ -14,10 +12,10 @@ Scripts for build ROS2 to running on Raspbian.
 
 - [ros2-0.2.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.2.0)
 
-| Version | aarch64| Download |
-| --- | --- | --- |
-| humble | ✔ | URL |
-| galactic | | |
+| Version | aarch64 |
+| --- | --- |
+| humble | ✔ |
+| galactic | |
 
 <br>
 
