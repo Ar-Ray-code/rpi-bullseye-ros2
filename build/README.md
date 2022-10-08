@@ -7,14 +7,6 @@
 
 <br>
 
-## ❌ Excluded packages ❌
-
-- RViz
-- rosbag
-- rqt
-
-<br>
-
 ## build ROS2-base
 
 ```bash
