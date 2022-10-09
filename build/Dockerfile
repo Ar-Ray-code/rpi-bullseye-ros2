@@ -32,7 +32,7 @@ RUN apt-get update && \
 	python3-flake8 \
 	python3-pip \
 	python3-pytest-cov \
-	python3-rosdep \
+	python3-rosdep2 \
 	python3-setuptools \
 	wget \
 	curl \
