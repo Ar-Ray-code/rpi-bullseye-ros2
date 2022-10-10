@@ -2,10 +2,10 @@
 
 # Read argment
 # e.g
-# 1. $ bash install galactic
-# 2. $ bash install galactic armv7l
-# 3. $ bash install galactic armv7l 0.1.0
-# 4. $ bash install galactic armv7l 0.1.0 /opt/ros
+# 1. $ bash install humble
+# 2. $ bash install humble aarch64
+# 3. $ bash install humble aarch64 0.2.0
+# 4. $ bash install humble aarch64 0.2.0 /opt/ros
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 TARGET_DISTRO=$1
@@ -14,8 +14,8 @@ VERSION=$3
 ROS_INSTALL_DIR=$4
 
 if [ -z "$TARGET_DISTRO" ];     then TARGET_DISTRO="humble";      fi
-if [ -z "$ARCH" ];              then ARCH="armv7l";                 fi
-if [ -z "$VERSION" ];           then VERSION="0.1.0";               fi
+if [ -z "$ARCH" ];              then ARCH="aarch64";                 fi
+if [ -z "$VERSION" ];           then VERSION="0.2.0";               fi
 if [ -z "$ROS_INSTALL_DIR" ];   then ROS_INSTALL_DIR="/opt/ros";    fi
 
 TARGET_ZIP="$TARGET_DISTRO-$ARCH"
