@@ -10,6 +10,8 @@ fi
 wget https://raw.githubusercontent.com/ros2/ros2/${DISTRO}/ros2.repos
 vcs import src < ros2.repos
 
+rosdep update
+
 export COLCON_OPTION="colcon build --continue-on-error --install-base $(pwd)/${DISTRO}/ --packages-skip-build-finished --packages-select"
 
 $COLCON_OPTION osrf_pycommon osrf_testing_tools_cpp google_benchmark_vendor
