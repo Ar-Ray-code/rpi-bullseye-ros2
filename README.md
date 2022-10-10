@@ -14,14 +14,37 @@ Scripts for build ROS2 to running on Raspbian (64bit).
 
 [ros2-0.2.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.2.0)
 
-| Version | aarch64 |
+| Distro | aarch64 |
 | --- | --- |
 | humble | ✔ |
 | galactic | |
 
+### Install
+
+- OS   : RaspberryPi OS bullseye aarch64
+- ROS2 : ROS2 Humble
+
+```bash
+# (humble, aarch64)
+wget https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash
+# bash install.bash <distro> <arch> <version> <install-dir>
+bash install.bash humble aarch64 0.2.0 /opt/ros
+```
+
+
+<br>
+
+### Load ROS2
+
+```bash
+source /opt/ros/humble/setup.bash
+```
+
 <br>
 
 <details><summary>ros2-0.1.0</summary>
+
+<br>
 
 [ros2-0.1.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.1.0)
 
@@ -34,18 +57,12 @@ Scripts for build ROS2 to running on Raspbian (64bit).
 
 <br>
 
-| Version | aarch64 | arm7l |
+| Distro | aarch64 | arm7l |
 | --- | --- | --- |
 | humble | ✔ | ✔ |
 | galactic | | ✔ |
 
-</details>
-
-<br>
-
-<br>
-
-## Install
+### Install
 
 - OS   : RaspberryPi OS bullseye aarch64
 - ROS2 : ROS2 Humble
@@ -53,10 +70,13 @@ Scripts for build ROS2 to running on Raspbian (64bit).
 ```bash
 # (humble, aarch64)
 wget https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash
-bash install.bash humble aarch64 0.2.0 /opt/ros
+bash install.bash humble aarch64 0.1.0 /opt/ros
+
+# galactic, arm7l
+# bash install.bash galactic arm7l 0.1.0 /opt/ros
 ```
 
-Load ROS2
+### Load ROS2
 
 ```bash
 source /opt/ros/humble/setup.bash
@@ -64,9 +84,14 @@ source /opt/ros/humble/setup.bash
 
 <br>
 
-## Build
+</details>
 
-[README](./build/README.md)
+<br>
+
+
+## Build ROS2
+
+- [README](./build/README.md)
 
 <br>
 
