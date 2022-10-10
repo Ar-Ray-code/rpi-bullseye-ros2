@@ -51,7 +51,7 @@ Scripts for build ROS2 to running on Raspbian (64bit).
 - ROS2 : ROS2 Humble
 
 ```bash
-# default : (humble, aarch64)
+# (humble, aarch64)
 wget https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash
 bash install humble aarch64 0.2.0 /opt/ros
 ```
