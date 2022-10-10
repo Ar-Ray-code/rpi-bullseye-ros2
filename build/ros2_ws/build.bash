@@ -11,7 +11,7 @@ wget https://raw.githubusercontent.com/ros2/ros2/${DISTRO}/ros2.repos
 vcs import src < ros2.repos
 
 rosdep update
-rosdep install -r -y -i --from-paths /ros2_ws/src/ --rosdistro ${DISTRO}
+# rosdep install -r -y -i --from-paths /ros2_ws/src/ --rosdistro ${DISTRO}
 
 colcon build --install-base $(pwd)/${DISTRO}/
 
