@@ -33,10 +33,12 @@ echo "============================================"
 
 TARGET_ZIP=$TARGET_ZIP.zip
 
-if [ ! -f $ROS_INSTALL_DIR/$TARGET_DISTRO/setup.bash ]; then
+if [ -f $ROS_INSTALL_DIR/$TARGET_DISTRO/setup.bash ]; then
+    echo ""
     echo "============================================"
     echo "already downloaded, skip download."
     echo "============================================"
+    echo ""
     exit 0
 fi
 
