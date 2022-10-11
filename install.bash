@@ -41,7 +41,7 @@ if [ ! -f $ROS_INSTALL_DIR/$TARGET_DISTRO/setup.bash ]; then
 
 # Download zip ===========================================================================
 sudo apt update
-sudo apt install git wget unzip -y
+sudo apt install git wget zip -y
 if [ ! -f $SCRIPT_DIR/$TARGET_ZIP ]; then
     echo "============================================"
     echo "download: $TARGET_ZIP ..."
@@ -63,7 +63,7 @@ cd $SCRIPT_DIR
 git clone https://github.com/Ar-Ray-code/rpi-bullseye-ros2.git
 
 # DL_ONLY selected -> exit
-if [ "$DL_ONLY" == "DL_ONLY" ]; then
+if [ ! -z "$DL_ONLY" ]; then
     echo "Skip install recommended dependencies. ($DL_ONLY)"
     exit 0
 fi
