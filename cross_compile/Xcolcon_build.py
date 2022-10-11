@@ -83,12 +83,15 @@ def run_command(args):
     print("=============================")
     print("[docker_command]: {}".format(docker_command))# execute docker
     print("==================================================================================")
+    start = time.time()
     subprocess.run(docker_command, shell=True)
     print("[Build done]")
+    print("elapsed: {}sec".format(round(time.time() - start, 4)))
     
-    time.sleep(1)
-
-    start = time.time()
+    # compress
+    subprocess.run(["zip", "-r", install_base + ".zip",  install_base], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    print("[compress done]")
+    
 
 
 if __name__ == "__main__":
