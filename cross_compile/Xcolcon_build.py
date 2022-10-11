@@ -75,9 +75,9 @@ def run_command(args):
     subprocess.run(["docker", "build", "-t", "xcolcon_docker", os.path.join(ros2_base_dir, distro, "rpi-bullseye-ros2/build/.")])
 
     docker_command = "docker run --rm -it"
-    docker_command += " --mount {}:/workspace".format(workspace)
-    docker_command += " --mount {}:/opt/ros".format(os.path.join(ros2_base_dir, distro))
-    docker_command += " --mount {}:/install_dir".format(install_base)
+    docker_command += " -v {}:/workspace".format(workspace)
+    docker_command += " -v {}:/opt/ros".format(os.path.join(ros2_base_dir, distro))
+    docker_command += " -v {}:/install_dir".format(install_base)
     docker_command += " xcolcon_docker:latest"
     docker_command += " /bin/bash -c {}".format('"' + source_optros + " && cd /workspace && " + build_command + '"')
     print("=============================")
