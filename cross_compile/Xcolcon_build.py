@@ -70,7 +70,7 @@ def run_command(args):
     # mkdir -p
     os.makedirs(os.path.join(ros2_base_dir, distro), exist_ok=True)
     os.chdir(os.path.join(ros2_base_dir, distro))
-    subprocess.run(["wget", "https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash"])
+    subprocess.run(["wget", "https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/features/cross_compile/install.bash"])
     subprocess.run(["/bin/bash", "./install.bash", distro, os.uname().machine, "0.2.0", ros2_base_dir, "DL_ONLY"])
 
 
