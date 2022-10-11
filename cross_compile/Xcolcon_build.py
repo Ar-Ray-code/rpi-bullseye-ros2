@@ -28,6 +28,11 @@ def run_command(args):
 
     cmake_args = args.cmake_args
     ament_cmake_args = args.ament_cmake_args
+
+    # if workspace is not exists, make it
+    if not os.path.exists(workspace):
+        os.makedirs(workspace)
+        print("{} is not exists, make it".format(workspace))
     
     build_command = "colcon build"
     build_command += " --executor {}".format(executor)
