@@ -12,6 +12,7 @@ TARGET_DISTRO=$1
 ARCH=$2
 VERSION=$3
 ROS_INSTALL_DIR=$4
+DL_ONLY=$5
 
 if [ -z "$TARGET_DISTRO" ];     then TARGET_DISTRO="humble";      fi
 if [ -z "$ARCH" ];              then ARCH="aarch64";                 fi
@@ -60,6 +61,12 @@ unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO
 # Install dependencies ===================================================================
 cd $SCRIPT_DIR
 git clone https://github.com/Ar-Ray-code/rpi-bullseye-ros2.git
+
+# DL_ONLY selected -> exit
+if [ "$DL_ONLY" == "DL_ONLY" ]; then
+    echo "Skip install recommended dependencies. ($DL_ONLY)"
+    exit 0
+fi
 
 sudo bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt.bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt-list.txt
 pip3 install -r $SCRIPT_DIR/rpi-bullseye-ros2/install-list/requirements.txt
