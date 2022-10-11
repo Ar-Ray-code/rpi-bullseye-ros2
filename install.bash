@@ -38,6 +38,7 @@ if [ ! -f $ROS_INSTALL_DIR/$TARGET_DISTRO/setup.bash ]; then
     echo "already downloaded, skip download."
     echo "============================================"
     exit 0
+fi
 
 # Download zip ===========================================================================
 sudo apt update
