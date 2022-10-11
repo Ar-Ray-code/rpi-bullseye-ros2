@@ -72,9 +72,9 @@ def run_command(args):
     os.chdir(os.path.join(ros2_base_dir, distro))
     subprocess.run(["wget", "https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/features/cross_compile/install.bash"])
     subprocess.run(["/bin/bash", "./install.bash", distro, os.uname().machine, "0.2.0", ros2_base_dir, "DL_ONLY"])
+    subprocess.run(["/bin.bash", "docker", "build", "-t", "xcolcon_docker", os.path.join(ros2_base_dir, distro) + "rpi-bullseye-ros2/build/."])
 
-
-    docker_command = "docker run --rm -it"
+    docker_command = "docker run --rm -it xcolcon_docker:latest"
     docker_command += " -v {}:/workspace".format(workspace)
     docker_command += " -v {}:/opt/ros".format(os.path.join(ros2_base_dir, distro))
     docker_command += " -v {}:/install_dir".format(install_base)
