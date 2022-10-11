@@ -37,7 +37,7 @@ def run_command(args):
     build_command = "colcon build"
     build_command += " --executor {}".format(executor)
     build_command += " --parallel-workers {}".format(parallel_workers)
-    build_command += " --install-base {}".format(install_base)
+    build_command += " --install-base {}".format(os.path.basename(install_base))
 
     if packages_skip_build_finished:
         build_command += " --packages-skip-build-finished"
