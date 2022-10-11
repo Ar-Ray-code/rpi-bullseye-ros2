@@ -52,11 +52,7 @@ if [ ! -f $SCRIPT_DIR/$TARGET_ZIP ]; then
     # extract from zip and copy to $ROS_INSTALL_DIR
     sudo mkdir -p $ROS_INSTALL_DIR
     sudo unzip $TARGET_ZIP -d $ROS_INSTALL_DIR
-    # Delete zip and unset env
-    rm $TARGET_ZIP
 fi
-
-unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO
 
 # Install dependencies ===================================================================
 cd $SCRIPT_DIR
@@ -67,6 +63,9 @@ if [ ! -z "$DL_ONLY" ]; then
     echo "Skip install recommended dependencies. ($DL_ONLY)"
     exit 0
 fi
+
+rm $TARGET_ZIP
+unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO
 
 sudo bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt.bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt-list.txt
 pip3 install -r $SCRIPT_DIR/rpi-bullseye-ros2/install-list/requirements.txt
