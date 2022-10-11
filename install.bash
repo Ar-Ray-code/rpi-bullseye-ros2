@@ -32,18 +32,29 @@ echo "============================================"
 
 TARGET_ZIP=$TARGET_ZIP.zip
 
+if [ ! -f $ROS_INSTALL_DIR/$TARGET_DISTRO/setup.bash ]; then
+    echo "============================================"
+    echo "already downloaded, skip download."
+    echo "============================================"
+    exit 0
+
 # Download zip ===========================================================================
 sudo apt update
-sudo apt install git wget -y
-URL="https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-$VERSION/$TARGET_ZIP"
+sudo apt install git wget unzip -y
+if [ ! -f $SCRIPT_DIR/$TARGET_ZIP ]; then
+    echo "============================================"
+    echo "download: $TARGET_ZIP ..."
 
-wget $URL || { echo "Check the github release and see if the file is there." && unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO SCRIPT_DIR && exit 1; }
+    URL="https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-$VERSION/$TARGET_ZIP"
+    wget $URL || { echo "Check the github release and see if the file is there." && unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO SCRIPT_DIR && exit 1; }
 
-# extract from zip and copy to $ROS_INSTALL_DIR
-sudo mkdir -p $ROS_INSTALL_DIR
-sudo unzip $TARGET_ZIP -d $ROS_INSTALL_DIR
-# Delete zip and unset env
-rm $TARGET_ZIP
+    # extract from zip and copy to $ROS_INSTALL_DIR
+    sudo mkdir -p $ROS_INSTALL_DIR
+    sudo unzip $TARGET_ZIP -d $ROS_INSTALL_DIR
+    # Delete zip and unset env
+    rm $TARGET_ZIP
+fi
+
 unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO
 
 # Install dependencies ===================================================================
