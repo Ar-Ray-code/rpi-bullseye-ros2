@@ -77,7 +77,7 @@ def run_command(args):
     docker_command = "docker run --rm -it"
     docker_command += " -v {}:/workspace".format(workspace)
     docker_command += " -v {}:/opt/ros".format(ros2_base_dir, distro)
-    docker_command += " -v {}:/install_dir".format(install_base)
+    docker_command += " -v {}:/{}".format(install_base, os.path.basename(install_base))
     docker_command += " xcolcon_docker:latest"
     docker_command += " /bin/bash -c {}".format('"' + source_optros + " && cd /workspace && " + build_command + '"')
     print("=============================")
