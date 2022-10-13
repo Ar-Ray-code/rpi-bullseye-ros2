@@ -17,7 +17,7 @@ import time
 def run_command(args):
     workspace = os.path.realpath(args.workspace)
     ros2_base_dir = os.path.realpath(args.ros2_base_dir)
-    output_zip = os.path.realpath(args.install_base).rstrip(".zip")
+    output_zip = os.path.realpath(args.output_zip).rstrip(".zip")
     install_base = os.path.join(workspace, output_zip)
 
     packages_select = args.packages_select
