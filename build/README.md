@@ -7,7 +7,7 @@
 
 <br>
 
-## Install Docker
+## Install Docker (Ubuntu, build-base)
 
 ```bash
 sudo apt update
