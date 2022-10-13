@@ -88,7 +88,7 @@ def run_command(args):
     print("elapsed: {}sec".format(round(time.time() - start, 4)))
     
     # compress
-    subprocess.run(["zip", "-r", install_base + ".zip",  install_base], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=os.path.dirname(install_base))
+    subprocess.run(["zip", "-r", os.path.basename(install_base) + ".zip", os.path.basename(install_base)], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=os.path.dirname(install_base))
     print("[ZIP]: ", os.path.dirname(install_base) + "/" + install_base + ".zip")
     print("[compress done]🍓🐢")
 
