@@ -12,6 +12,7 @@ TARGET_DISTRO=$1
 ARCH=$2
 VERSION=$3
 ROS_INSTALL_DIR=$4
+DL_ONLY=$5
 
 if [ -z "$TARGET_DISTRO" ];     then TARGET_DISTRO="humble";      fi
 if [ -z "$ARCH" ];              then ARCH="aarch64";                 fi
@@ -32,23 +33,42 @@ echo "============================================"
 
 TARGET_ZIP=$TARGET_ZIP.zip
 
+if [ -f $ROS_INSTALL_DIR/$TARGET_DISTRO/setup.bash ]; then
+    echo ""
+    echo "============================================"
+    echo "skip download zip"
+    echo "============================================"
+    echo ""
+    exit 0
+fi
+
 # Download zip ===========================================================================
 sudo apt update
-sudo apt install git wget -y
-URL="https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-$VERSION/$TARGET_ZIP"
+sudo apt install git wget zip -y
+if [ ! -f $SCRIPT_DIR/$TARGET_ZIP ]; then
+    echo "============================================"
+    echo "download: $TARGET_ZIP ..."
 
-wget $URL || { echo "Check the github release and see if the file is there." && unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO SCRIPT_DIR && exit 1; }
+    URL="https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-$VERSION/$TARGET_ZIP"
+    wget $URL || { echo "Check the github release and see if the file is there." && unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO SCRIPT_DIR && exit 1; }
 
-# extract from zip and copy to $ROS_INSTALL_DIR
-sudo mkdir -p $ROS_INSTALL_DIR
-sudo unzip $TARGET_ZIP -d $ROS_INSTALL_DIR
-# Delete zip and unset env
-rm $TARGET_ZIP
-unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO
+    # extract from zip and copy to $ROS_INSTALL_DIR
+    sudo mkdir -p $ROS_INSTALL_DIR
+    sudo unzip $TARGET_ZIP -d $ROS_INSTALL_DIR
+fi
 
 # Install dependencies ===================================================================
 cd $SCRIPT_DIR
 git clone https://github.com/Ar-Ray-code/rpi-bullseye-ros2.git
+
+# DL_ONLY selected -> exit
+if [ ! -z "$DL_ONLY" ]; then
+    echo "Skip install recommended dependencies. ($DL_ONLY)"
+    exit 0
+fi
+
+rm $TARGET_ZIP
+unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO
 
 sudo bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt.bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt-list.txt
 pip3 install -r $SCRIPT_DIR/rpi-bullseye-ros2/install-list/requirements.txt

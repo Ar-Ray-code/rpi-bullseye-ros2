@@ -26,7 +26,7 @@ Scripts for build ROS2 to running on Raspbian (64bit).
 
 ```bash
 # (humble, aarch64)
-wget https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash
+curl -O https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash
 # bash install.bash <distro> <arch> <version> <install-dir>
 bash install.bash humble aarch64 0.2.0 /opt/ros
 ```
