@@ -1,4 +1,5 @@
 #!/bin/env python3
+from gettext import install
 import os
 import subprocess
 import argparse
@@ -16,14 +17,15 @@ import time
 def run_command(args):
     workspace = os.path.realpath(args.workspace)
     ros2_base_dir = os.path.realpath(args.ros2_base_dir)
-    install_base = os.path.realpath(args.install_base)
+    output_zip = os.path.realpath(args.install_base).rstrip(".zip")
+    install_base = os.path.join(workspace, output_zip)
 
     packages_select = args.packages_select
     packages_skip_up_to = args.packages_skip_up_to
     parallel_workers = args.parallel_workers
     packages_skip_build_finished = args.packages_skip_build_finished
     executor = args.executor
-    clear_cache = args.clear_cache
+    # clear_cache = args.clear_cache
     distro = args.distro
 
     cmake_args = args.cmake_args
@@ -89,7 +91,7 @@ def run_command(args):
     
     # compress
     subprocess.run(["zip", "-r", os.path.basename(install_base) + ".zip", os.path.basename(install_base)], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=os.path.dirname(install_base))
-    print("[ZIP]: ", os.path.dirname(install_base) + "/" + install_base + ".zip")
+    print("[ZIP]: ", os.path.dirname(install_base) + "/" + os.path.dirname(install_base) + ".zip")
     print("[compress done]🍓🐢")
 
 
@@ -102,13 +104,13 @@ if __name__ == "__main__":
     parser.add_argument('--distro', type=str,  help='specify distro', default='humble')
 
     parser.add_argument('--ros2-base-dir', type=str, help='ROS2 path (from current path)', default='ros2')
-    parser.add_argument('--install-base', type=str,  help='install base directory', default='output_'+os.uname().machine+'_'+str(int(time.time())))
+    parser.add_argument('--output-zip', type=str,  help='install base directory', default='output_'+os.uname().machine+'_'+str(int(time.time())))
     parser.add_argument('--packages-select', nargs='+', help='select packages', default=[])
     parser.add_argument('--packages-skip-up-to', nargs='+', help='skip up to packages', default=[])
     parser.add_argument('--parallel-workers', type=int,  help='max number of parallel execution', default=4)
     parser.add_argument('--packages-skip-build-finished',  help='skip build finished', action="store_true")
     parser.add_argument('--executor', type=str,  help='executor type', default='parallel')
-    parser.add_argument('--clear-cache',  help='clear cache after build', action="store_true")
+    # parser.add_argument('--clear-cache',  help='clear cache after build', action="store_true")
     parser.add_argument('--cmake-args', type=str, help='pass arguments to cmake in command line', default=None)
     parser.add_argument('--ament-cmake-args', type=str, help='pass arguments to ament_cmake in command line', default=None)
 
