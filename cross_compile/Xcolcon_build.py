@@ -88,10 +88,9 @@ def run_command(args):
     print("elapsed: {}sec".format(round(time.time() - start, 4)))
     
     # compress
-    # cd dirname(install_base)
-    subprocess.run(["cd", os.path.dirname(install_base), "&& zip -r{}".format("%").format(os.path.basename(install_base))])
-    print("=============================")
-    print("[compress done]")
+    subprocess.run(["zip", "-r", install_base + ".zip",  install_base], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=os.path.dirname(install_base))
+    print("[ZIP]: ", os.path.dirname(install_base) + "/" + install_base + ".zip")
+    print("[compress done]🍓🐢")
 
 
 if __name__ == "__main__":
