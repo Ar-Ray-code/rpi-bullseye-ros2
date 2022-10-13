@@ -71,10 +71,12 @@ def run_command(args):
     # mkdir -p
     os.makedirs(os.path.join(ros2_base_dir, distro), exist_ok=True)
     os.chdir(os.path.join(ros2_base_dir, distro))
+    # download ros2 source code (already downloaded will skip)
     subprocess.run(["wget", "https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/features/cross_compile/install.bash"])
     subprocess.run(["/bin/bash", "./install.bash", distro, os.uname().machine, "0.2.0", ros2_base_dir, "DL_ONLY"])
     subprocess.run(["docker", "build", "-t", "xcolcon_docker", os.path.join(ros2_base_dir, distro, "rpi-bullseye-ros2/build/.")])
 
+    # generate docker command
     docker_command = "docker run --rm -it"
     docker_command += " -v {}:/workspace".format(workspace)
     docker_command += " -v {}:/opt/ros".format(ros2_base_dir, distro)
@@ -91,6 +93,7 @@ def run_command(args):
     
     # compress
     subprocess.run(["zip", "-r", os.path.basename(install_base) + ".zip", os.path.basename(install_base)], stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=os.path.dirname(install_base))
+    subprocess.run(["rm", ros2_base_dir, distro, "install.bash"])
     print("[ZIP]: ", os.path.dirname(install_base) + "/" + os.path.dirname(install_base) + ".zip")
     print("[compress done]🍓🐢")
 
