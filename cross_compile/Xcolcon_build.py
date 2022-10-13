@@ -17,7 +17,7 @@ import time
 def run_command(args):
     workspace = os.path.realpath(args.workspace)
     ros2_base_dir = os.path.realpath(args.ros2_base_dir)
-    output_zip = os.path.realpath(args.output_zip).rstrip(".zip")
+    output_zip = os.path.basename(args.output_zip).rstrip(".zip")
     install_base = os.path.join(workspace, output_zip)
 
     packages_select = args.packages_select
@@ -61,9 +61,9 @@ def run_command(args):
 
     print("[Building workspace: {}]".format(workspace))
     print("============================")
-    print("[ros2_base_dir:] {}".format(ros2_base_dir))
-    print("[install_base:] {}".format(install_base))
-    print("build_command:", build_command)
+    print("[ros2_base_dir] {}".format(ros2_base_dir))
+    print("[install_base] {}".format(install_base))
+    print("[build_command]", build_command)
     print("================================================================================")
 
     source_optros = "source /opt/ros/{}/setup.bash".format(distro)
