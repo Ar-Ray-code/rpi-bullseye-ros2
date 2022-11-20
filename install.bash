@@ -44,6 +44,7 @@ fi
 
 # Download zip ===========================================================================
 sudo apt update
+sudo apt upgrade -y
 sudo apt install git wget zip -y
 if [ ! -f $SCRIPT_DIR/$TARGET_ZIP ]; then
     echo "============================================"
@@ -76,3 +77,17 @@ sudo pip3 install vcstool colcon-common-extensions
 # Delete downloaded repository and unset env
 rm -rf $SCRIPT_DIR/rpi-bullseye-ros2
 unset SCRIPT_DIR
+
+if [ -f $ROS_INSTALL_DIR/$TARGET_DISTRO/setup.bash ]; then
+    echo "" && echo ""
+    echo "All done. Thank you! 🍓📦🐢"
+    echo "========================================"
+    echo "📦 GitHub         : https://github.com/Ar-Ray-code/rpi-bullseye-ros2"
+    echo "🐞 Bug report     : https://github.com/Ar-Ray-code/rpi-bullseye-ros2/issues"
+    echo "🧡 GitHub sponsor : https://github.com/sponsors/Ar-Ray-code"
+    echo "========================================"
+    echo ""
+    exit 0
+fi
+
+exit 1
