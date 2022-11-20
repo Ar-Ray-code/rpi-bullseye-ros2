@@ -69,14 +69,13 @@ if [ ! -z "$DL_ONLY" ]; then
 fi
 
 rm $TARGET_ZIP
-unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO
+
 
 sudo bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt.bash $SCRIPT_DIR/rpi-bullseye-ros2/install-list/apt-list.txt
 pip3 install -r $SCRIPT_DIR/rpi-bullseye-ros2/install-list/requirements.txt
 sudo pip3 install vcstool colcon-common-extensions
 # Delete downloaded repository and unset env
 rm -rf $SCRIPT_DIR/rpi-bullseye-ros2
-unset SCRIPT_DIR
 
 if [ -f $ROS_INSTALL_DIR/$TARGET_DISTRO/setup.bash ]; then
     echo "" && echo ""
@@ -89,5 +88,7 @@ if [ -f $ROS_INSTALL_DIR/$TARGET_DISTRO/setup.bash ]; then
     echo ""
     exit 0
 fi
+
+unset TARGET_ZIP ROS_INSTALL_DIR VERSION TARGET_DISTRO SCRIPT_DIR
 
 exit 1
