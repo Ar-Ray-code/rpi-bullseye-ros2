@@ -97,7 +97,7 @@ source /opt/ros/humble/setup.bash
 
 ## Cross compile 🛠️
 
-- [README](./cross_compile/README.md)
+- [Ar-Ray-code/rpi-bullseye-ros2-xcompile](https://github.com/Ar-Ray-code/rpi-bullseye-ros2-xcompile)
 
 <br>
 
