@@ -13,6 +13,11 @@ if [ -z "$DISTRO" ]; then
     sleep 1
 fi
 
+# setup qemu (if this computer arch is x86_64)
+if [ "$(uname -m)" == "x86_64" ]; then
+    docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+fi
+
 cd $SCRIPT_DIR
 docker build -t ros2-${DISTRO}-aarch64 .
 if [ $? -ne 0 ]; then
