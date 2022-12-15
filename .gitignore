@@ -1,3 +1,16 @@
-build/*
+build/ros2_ws/build
+build/ros2_ws/install
+build/ros2_ws/log
+build/ros2_ws/src
+
+dashing
+eloquent
+foxy
+rolling
+humble
+
+
+
+
 deb/
 *.zip
