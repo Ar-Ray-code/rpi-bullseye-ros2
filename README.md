@@ -10,7 +10,7 @@ Scripts for build ROS2 to running on Raspbian (64bit).
 
 ## Support
 
-### Latest : ros2-0.2.0
+### Latest : ros2-0.3.0
 
 [ros2-0.3.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.3.0)
 
