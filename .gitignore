@@ -6,6 +6,7 @@ build/ros2_ws/src
 dashing
 eloquent
 foxy
+galactic
 rolling
 humble
 ros2.repos*
