@@ -20,37 +20,37 @@ echo "VERSION: ${VERSION}"
 echo "Build Date: $(date +%Y%m%d)"
 echo "ROS_INSTALL_DIR: ${ROS_INSTALL_DIR}"
 echo "============================================"
-echo " "
+echo ""
 
+# name-variables -------------------------------------------------------------------------------
 DATE=$(date +%Y%m%d)
-DEB_NAME="ros2-$TARGET_DISTRO-desktop-${VERSION}_${DATE}_${ARCH}"
-
-# copy files to deb folder
+DEB_NAME="ros-$TARGET_DISTRO-desktop-${VERSION}_${DATE}_${ARCH}"
+# path-variables -------------------------------------------------------------------------------
+TARGET_DIR=${SCRIPT_DIR}/build/ros2_ws/${TARGET_DISTRO}
 DEB_ROOT=${SCRIPT_DIR}/deb/${DEB_NAME}
 INSTALL_DIR=${DEB_ROOT}/opt/ros/${TARGET_DISTRO}
 
+# copy files to deb folder ---------------------------------------------------------------
 mkdir -p ${INSTALL_DIR}
 cd ${INSTALL_DIR}
-cp -r ${SCRIPT_DIR}/build/ros2_ws/${TARGET_DISTRO}/* ${INSTALL_DIR}/
+cp -r ${TARGET_DIR}/* ${INSTALL_DIR}/
 
-# create control file
-CONTROL_FILE=${DEB_ROOT}/DEBIAN/control
+# create control file ---------------------------------------------------------------------
 rm -rf ${DEB_ROOT}/DEBIAN
-
 mkdir -p ${DEB_ROOT}/DEBIAN
+
+DEPENDS=$(cat ${SCRIPT_DIR}/config/depends.txt | tr '\n' ',' | sed 's/,$//')\
+echo "depens: $DEPENDS"
+CONTROL_FILE=${DEB_ROOT}/DEBIAN/control
 echo "Package: ros-$TARGET_DISTRO-desktop" > ${CONTROL_FILE}
 echo "Version: ${VERSION}" >> ${CONTROL_FILE}
 echo "Section: base" >> ${CONTROL_FILE}
 echo "Priority: optional" >> ${CONTROL_FILE}
 echo "Architecture: ${ARCH}" >> ${CONTROL_FILE}
-
-# add depends from depends.txt file (\n -> , + space)
-DEPENDS=$(cat ${SCRIPT_DIR}/config/depends.txt | tr '\n' ',' | sed 's/,$//')
 echo "Depends: $DEPENDS" >> ${CONTROL_FILE}
-echo "depens: $DEPENDS"
-
 echo "Maintainer: Ar-Ray-code <ray255ar@gmail.com>" >> ${CONTROL_FILE}
 echo "Description: ROS2 $TARGET_DISTRO for Raspberry Pi OS Bullseye 64bit" >> ${CONTROL_FILE}
 
 dpkg-deb --build --root-owner-group ${DEB_ROOT} ${SCRIPT_DIR}/deb/${DEB_NAME}.deb
 
+# ----------------------------------------------------------------------------------------
