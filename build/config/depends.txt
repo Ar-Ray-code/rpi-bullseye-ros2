@@ -22,6 +22,7 @@ lsb-release
 mingw-w64-i686-dev
 pciutils
 pyqt5-dev
+python3-argcomplete
 python3-flake8
 python3-lark
 python3-netifaces

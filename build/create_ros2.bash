@@ -32,16 +32,16 @@ docker run -it --rm --net=host \
 
 cd $SCRIPT_DIR/ros2_ws
 
-zip -r ${SCRIPT_DIR}/${DISTRO}-aarch64.zip ${DISTRO}
-if [ $? -ne 0 ]; then
-    echo "Failed to zip."
-    exit 1
-fi
+# zip -r ${SCRIPT_DIR}/${DISTRO}-aarch64.zip ${DISTRO}
+# if [ $? -ne 0 ]; then
+#     echo "Failed to zip."
+#     exit 1
+# fi
 cd ${SCRIPT_DIR}
 
 echo ""
 echo "All done!"
 echo "--------------------------"
-echo "zip : ${SCRIPT_DIR}/${DISTRO}-aarch64.zip"
+echo "zip : -"
 echo "distro : ${DISTRO}"
 echo "--------------------------"
