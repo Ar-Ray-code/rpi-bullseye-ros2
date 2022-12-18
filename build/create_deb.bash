@@ -1,6 +1,6 @@
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 TARGET_DISTRO=$1
-ARCH=$2
+ARCH=$2 
 ROS_INSTALL_DIR=$3
 DL_ONLY=$4
 
@@ -26,7 +26,7 @@ echo ""
 DATE=$(date +%Y%m%d)
 DEB_NAME="ros-$TARGET_DISTRO-desktop-${VERSION}_${DATE}_${ARCH}"
 # path-variables -------------------------------------------------------------------------------
-TARGET_DIR=${SCRIPT_DIR}/build/ros2_ws/${TARGET_DISTRO}
+TARGET_DIR=${SCRIPT_DIR}/ros2_ws/${TARGET_DISTRO}
 DEB_ROOT=${SCRIPT_DIR}/deb/${DEB_NAME}
 INSTALL_DIR=${DEB_ROOT}/opt/ros/${TARGET_DISTRO}
 
@@ -39,7 +39,7 @@ cp -r ${TARGET_DIR}/* ${INSTALL_DIR}/
 rm -rf ${DEB_ROOT}/DEBIAN
 mkdir -p ${DEB_ROOT}/DEBIAN
 
-DEPENDS=$(cat ${SCRIPT_DIR}/config/depends.txt | tr '\n' ',' | sed 's/,$//')\
+DEPENDS=$(cat ${SCRIPT_DIR}/config/depends.txt | tr '\n' ',' | sed 's/,$//')
 echo "depens: $DEPENDS"
 CONTROL_FILE=${DEB_ROOT}/DEBIAN/control
 echo "Package: ros-$TARGET_DISTRO-desktop" > ${CONTROL_FILE}
