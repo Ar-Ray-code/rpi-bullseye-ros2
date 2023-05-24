@@ -3,15 +3,12 @@
 echo "ROS2 builder for the Raspberry Pi 🍓 (debian-bullseye-armv8)"
 
 SCRIPT_DIR=`realpath $(dirname "$0")`
-DISTRO=$1
+DISTRO=${1-"iron"}
 
 mkdir -p ${SCRIPT_DIR}/ros2_ws/src
 
-if [ -z "$DISTRO" ]; then
-    DISTRO=humble
-    echo "No distro specified, using $DISTRO"
-    sleep 1
-fi
+echo "Distro: ${DISTRO}"
+sleep 1
 
 # setup qemu (if this computer arch is x86_64)
 if [ "$(uname -m)" == "x86_64" ]; then

@@ -11,6 +11,7 @@ libbullet-dev
 libeigen3-dev
 libfreetype-dev
 liblog4cxx-dev
+liblttng-ust-dev
 libopencv-dev
 libresource-retriever-dev
 libsdl2-dev
