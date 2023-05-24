@@ -1,15 +1,10 @@
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-TARGET_DISTRO=$1
-ARCH=$2 
-ROS_INSTALL_DIR=$3
-DL_ONLY=$4
 
+TARGET_DISTRO=${1-"iron"}
+ARCH=${2-"arm64"}
+ROS_INSTALL_DIR=${3-"/opt/ros"}
 VERSION=$(cat ${SCRIPT_DIR}/config/version.txt)
 
-if [ -z "$TARGET_DISTRO" ];     then TARGET_DISTRO="humble";      fi
-if [ -z "$ARCH" ];              then ARCH="arm64";                 fi
-if [ -z "$VERSION" ];           then VERSION="0.2.0";               fi
-if [ -z "$ROS_INSTALL_DIR" ];   then ROS_INSTALL_DIR="/opt/ros";    fi
 
 echo "============================================"
 echo " Ar-Ray-code/rpi-bullseye-ros2              "
