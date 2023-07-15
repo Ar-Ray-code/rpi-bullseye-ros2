@@ -28,6 +28,7 @@ Scripts for build ROS2 to running on Raspbian (64bit).
 ```bash
 wget https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.1/ros-humble-desktop-0.3.1_20221218_arm64.deb
 sudo apt install ./ros-humble-desktop-0.3.1_20221218_arm64.deb
+sudo pip install vcstool colcon-common-extensions
 ```
 
 ### Uninstall
