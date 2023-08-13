@@ -51,7 +51,28 @@ RUN apt-get update && \
 	python3-pyqt5.qtsvg \
 	python3-netifaces \
 	libfreetype-dev \
-	libresource-retriever-dev && \
+	libresource-retriever-dev \
+	# YOLOX
+	libboost-python-dev \
+	# Realsense
+	libssl-dev \
+	libusb-1.0-0-dev \
+	pkg-config \
+	libgtk-3-dev \
+	libglfw3-dev \
+	libgl1-mesa-dev \
+	libglu1-mesa-dev \
+	# Velodyne
+	libpcl-dev \
+	libyaml-cpp-dev \
+	libpcap-dev \
+	# joy
+	libspnav-dev \
+	libbluetooth-dev \
+	libcwiid-dev \
+	# ros2_control
+	libfmt-dev \
+	librange-v3-dev && \
 	rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
@@ -71,7 +92,26 @@ RUN pip install \
 	setuptools \
 	importlib-metadata \
 	importlib-resources \
-	lark-parser
+	lark-parser \
+	cython \
+	typeguard
+
+# cmake upgrade
+RUN curl https://github.com/Kitware/CMake/releases/download/v3.27.2/cmake-3.27.2-linux-aarch64.sh --output cmake_install.sh && \
+	chmod +x cmake_install.sh && \
+	./cmake_install.sh --skip-license --prefix=/usr/local
+
+# OpenVINO
+RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/openvino/debian/bullseye/openvino-2022-raspbian-bullseye-arm64-0.1.0-20221219.deb && \
+	apt-get install -y ./openvino-2022-raspbian-bullseye-arm64-0.1.0-20221219.deb
+
+# realsense
+RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/librealsense/debian/bullseye/librealsense-dev_2-53-1_arm64.deb && \
+	apt-get install -y ./librealsense-dev_2-53-1_arm64.deb && \
+	rm ./librealsense-dev_2-53-1_arm64.deb && \
+	echo "export realsense2_DIR=/usr/local/lib/aarch64-linux-gnu/cmake/realsense2/" >> ~/.bashrc && \
+	echo "export OpenCV_DIR=/usr/lib/aarch64-linux-gnu/cmake/opencv4/" >> ~/.bashrc
+
 
 RUN pip install vcstool colcon-common-extensions
 

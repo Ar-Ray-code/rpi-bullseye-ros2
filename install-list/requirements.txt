@@ -13,3 +13,5 @@ setuptools
 importlib-metadata
 importlib-resources
 lark-parser
+cython
+typeguard

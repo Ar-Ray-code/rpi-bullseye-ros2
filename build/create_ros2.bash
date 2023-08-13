@@ -4,10 +4,16 @@ echo "ROS2 builder for the Raspberry Pi 🍓 (debian-bullseye-armv8)"
 
 SCRIPT_DIR=`realpath $(dirname "$0")`
 DISTRO=${1-"iron"}
+BUILD_FULL_PKG=${2:-false}
+# if build_full_pkg = full, build all packages
+if [ ${BUILD_FULL_PKG} = full ]; then
+    BUILD_FULL_PKG=true
+fi
 
 mkdir -p ${SCRIPT_DIR}/ros2_ws/src
 
 echo "Distro: ${DISTRO}"
+echo "Build full package: ${BUILD_FULL_PKG}"
 sleep 1
 
 # setup qemu (if this computer arch is x86_64)
@@ -25,7 +31,7 @@ fi
 docker run -it --rm --net=host \
     -v $SCRIPT_DIR/ros2_ws:/ros2_ws \
     ros2-${DISTRO}-aarch64 \
-    /bin/bash -c "bash /ros2_ws/build.bash ${DISTRO}"
+    /bin/bash -c "bash /ros2_ws/build.bash ${DISTRO} ${BUILD_FULL_PKG}"
 
 cd $SCRIPT_DIR/ros2_ws
 
