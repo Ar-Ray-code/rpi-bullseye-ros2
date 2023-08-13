@@ -1,0 +1,13 @@
+repositories:
+  diagnostics:
+    type: git
+    url: https://github.com/ros/diagnostics.git
+    version: humble
+  velodyne:
+    type: git
+    url: https://github.com/ros-drivers/velodyne.git
+    version: humble-devel
+  angles:
+    type: git
+    url: https://github.com/ros/angles.git
+    version: humble-devel

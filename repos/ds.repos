@@ -1,0 +1,13 @@
+repositories:
+  diagnostics:
+    type: git
+    url: https://github.com/ros/diagnostics.git
+    version: ros2
+  joystick_drivers:
+    type: git
+    url: https://github.com/ros-drivers/joystick_drivers.git
+    version: ros2
+  PlayStation-JoyInterface-ROS2:
+    type: git
+    url: https://github.com/HarvestX/PlayStation-JoyInterface-ROS2.git
+    version: humble

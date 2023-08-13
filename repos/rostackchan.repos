@@ -1,0 +1,69 @@
+repositories:
+  feetech_scs_ros2_driver:
+    type: git
+    url: https://github.com/Ar-Ray-code/feetech_scs_ros2_driver.git
+    version: main
+  rostack-chan:
+    type: git
+    url: https://github.com/Ar-Ray-code/rostack-chan.git
+    version: main
+  h6x_serial_interface:
+    type: git
+    url: https://github.com/HarvestX/h6x_serial_interface.git
+    version: humble
+  ros2_control:
+    type: git
+    url: https://github.com/ros-controls/ros2_control.git
+    version: humble
+  control_msgs:
+    type: git
+    url: https://github.com/ros-controls/control_msgs.git
+    version: humble
+  backward_ros:
+    type: git
+    url: https://github.com/pal-robotics/backward_ros.git
+    version: foxy-devel
+  realtime_tools:
+    type: git
+    url: https://github.com/ros-controls/realtime_tools.git
+    version: master
+  xacro:
+    type: git
+    url: https://github.com/ros/xacro.git
+    version: ros2
+  ros2_controllers:
+    type: git
+    url: https://github.com/ros-controls/ros2_controllers.git
+    version: humble
+  angles:
+    type: git
+    url: https://github.com/ros/angles.git
+    version: ros2
+  control_toolbox:
+    type: git
+    url: https://github.com/ros-controls/control_toolbox.git
+    version: foxy
+  filters:
+    type: git
+    url: https://github.com/ros/filters.git
+    version: ros2
+  ackermann_msgs:
+    type: git
+    url: https://github.com/ros-drivers/ackermann_msgs.git
+    version: ros2
+  kinematics_interface:
+    type: git
+    url: https://github.com/ros-controls/kinematics_interface.git
+    version: master
+  generate_parameter_library:
+    type: git
+    url: https://github.com/PickNikRobotics/generate_parameter_library.git
+    version: main
+  cpp_polyfills:
+    type: git
+    url: https://github.com/PickNikRobotics/cpp_polyfills.git
+    version: main
+  RSL:
+    type: git
+    url: https://github.com/PickNikRobotics/RSL.git
+    version: main

@@ -1,0 +1,17 @@
+repositories:
+  realsense-ros:
+    type: git
+    url: https://github.com/IntelRealSense/realsense-ros.git
+    version: ros2-development
+  diagnostics:
+    type: git
+    url: https://github.com/ros/diagnostics.git
+    version: ros2
+  vision_opencv:
+    type: git
+    url: https://github.com/ros-perception/vision_opencv.git
+    version: humble
+  image_common:
+    type: git
+    url: https://github.com/ros-perception/image_common.git
+    version: humble
