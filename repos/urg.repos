@@ -6,7 +6,7 @@ repositories:
   diagnostics:
     type: git
     url: https://github.com/ros/diagnostics.git
-    version: humble
+    version: ros2
   laser_proc:
     type: git
     url: https://github.com/ros-perception/laser_proc.git
