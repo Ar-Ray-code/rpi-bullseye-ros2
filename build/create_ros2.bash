@@ -10,6 +10,7 @@ if [ ${BUILD_FULL_PKG} = full ]; then
     BUILD_FULL_PKG=true
 fi
 
+sudo rm -rf ${SCRIPT_DIR}/ros2_ws/*.repos
 mkdir -p ${SCRIPT_DIR}/ros2_ws/src
 
 echo "Distro: ${DISTRO}"

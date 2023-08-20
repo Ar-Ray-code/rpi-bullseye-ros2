@@ -52,6 +52,7 @@ RUN apt-get update && \
 	python3-netifaces \
 	libfreetype-dev \
 	libresource-retriever-dev \
+	python3-jinja2 \
 	# YOLOX
 	libboost-python-dev \
 	# Realsense
@@ -97,7 +98,7 @@ RUN pip install \
 	typeguard
 
 # cmake upgrade
-RUN curl https://github.com/Kitware/CMake/releases/download/v3.27.2/cmake-3.27.2-linux-aarch64.sh --output cmake_install.sh && \
+RUN wget https://github.com/Kitware/CMake/releases/download/v3.27.2/cmake-3.27.2-linux-aarch64.sh -O cmake_install.sh && \
 	chmod +x cmake_install.sh && \
 	./cmake_install.sh --skip-license --prefix=/usr/local
 
@@ -106,9 +107,9 @@ RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/openvino/debi
 	apt-get install -y ./openvino-2022-raspbian-bullseye-arm64-0.1.0-20221219.deb
 
 # realsense
-RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/librealsense/debian/bullseye/librealsense-dev_2-53-1_arm64.deb && \
-	apt-get install -y ./librealsense-dev_2-53-1_arm64.deb && \
-	rm ./librealsense-dev_2-53-1_arm64.deb && \
+RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/librealsense/debian/bullseye/librealsense2-dev_2.54.1_arm64.deb && \
+	apt-get install -y ./librealsense2-dev_2.54.1_arm64.deb && \
+	rm ./librealsense2-dev_2.54.1_arm64.deb && \
 	echo "export realsense2_DIR=/usr/local/lib/aarch64-linux-gnu/cmake/realsense2/" >> ~/.bashrc && \
 	echo "export OpenCV_DIR=/usr/lib/aarch64-linux-gnu/cmake/opencv4/" >> ~/.bashrc
 

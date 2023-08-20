@@ -8,7 +8,9 @@ if [ -z "$DISTRO" ]; then
     echo "No distro specified, using default: ${DISTRO}"
 fi
 
-# cmake version
+. ~/.bashrc
+echo "========================================"
+# lib
 cmake --version
 
 cd ${SCRIPT_DIR}
