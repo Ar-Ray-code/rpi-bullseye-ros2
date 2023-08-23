@@ -53,6 +53,8 @@ RUN apt-get update && \
 	libfreetype-dev \
 	libresource-retriever-dev \
 	python3-jinja2 \
+	# iron
+	liblttng-ust-dev \
 	# YOLOX
 	libboost-python-dev \
 	# Realsense

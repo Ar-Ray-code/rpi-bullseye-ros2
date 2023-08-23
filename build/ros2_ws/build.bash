@@ -29,7 +29,7 @@ if [ ${BUILD_FULL_PKG} = true ]; then
 
     for f in *.repos; do
         echo "---- importing $f ----"
-        # vcs import src < $f
+        vcs import src < $f
     done
 else
     echo "Building minimal package"
