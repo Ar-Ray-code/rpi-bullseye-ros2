@@ -34,7 +34,7 @@ cp -r ${TARGET_DIR}/* ${INSTALL_DIR}/
 rm -rf ${DEB_ROOT}/DEBIAN
 mkdir -p ${DEB_ROOT}/DEBIAN
 
-DEPENDS=$(cat ${SCRIPT_DIR}/config/depends.txt | tr '\n' ',' | sed 's/,$//')
+DEPENDS=$(cat ${SCRIPT_DIR}/config/depends.txt ${SCRIPT_DIR}/config/full.txt | tr '\n' ',' | sed 's/,$//')
 echo "depens: $DEPENDS"
 CONTROL_FILE=${DEB_ROOT}/DEBIAN/control
 echo "Package: ros-$TARGET_DISTRO-desktop" > ${CONTROL_FILE}

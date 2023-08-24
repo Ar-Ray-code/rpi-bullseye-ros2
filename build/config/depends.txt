@@ -41,3 +41,4 @@ sip-dev
 xterm
 wget
 zip
+liblttng-ust-dev
