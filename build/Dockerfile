@@ -1,4 +1,5 @@
-FROM arm64v8/debian:bullseye
+ARG DEBIAN_DISTRO=bullseye
+FROM arm64v8/debian:${DEBIAN_DISTRO}
 
 ENV TZ=Asia/Tokyo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -78,9 +79,9 @@ RUN apt-get update && \
 	librange-v3-dev && \
 	rm -rf /var/lib/apt/lists/*
 
-RUN pip install --upgrade pip
+# RUN pip install --upgrade pip
 
-RUN pip install \
+RUN pip install --break-system-packages \
 	flake8-blind-except \
 	flake8-builtins \
 	flake8-class-newline \
@@ -116,7 +117,7 @@ RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/librealsense/
 	echo "export OpenCV_DIR=/usr/lib/aarch64-linux-gnu/cmake/opencv4/" >> ~/.bashrc
 
 
-RUN pip install vcstool colcon-common-extensions
+RUN pip install --break-system-packages vcstool colcon-common-extensions
 
 RUN mkdir -p /ros2_ws/src
 WORKDIR /ros2_ws

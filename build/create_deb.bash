@@ -44,7 +44,7 @@ echo "Priority: optional" >> ${CONTROL_FILE}
 echo "Architecture: ${ARCH}" >> ${CONTROL_FILE}
 echo "Depends: $DEPENDS" >> ${CONTROL_FILE}
 echo "Maintainer: Ar-Ray-code <ray255ar@gmail.com>" >> ${CONTROL_FILE}
-echo "Description: ROS2 $TARGET_DISTRO for Raspberry Pi OS Bullseye 64bit" >> ${CONTROL_FILE}
+echo "Description: ROS2 $TARGET_DISTRO for Raspberry Pi OS Bookworm 64bit" >> ${CONTROL_FILE}
 
 dpkg-deb --build -Z xz --root-owner-group ${DEB_ROOT} ${SCRIPT_DIR}/deb/${DEB_NAME}.deb
 
