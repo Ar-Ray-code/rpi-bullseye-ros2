@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "ROS2 builder for the Raspberry Pi 🍓 (debian-bullseye-armv8)"
-
 SCRIPT_DIR=`realpath $(dirname "$0")`
 DISTRO=${1:-"iron"}
 DEBIAN_DISTRO=${2:-"bullseye"}
@@ -10,6 +8,8 @@ BUILD_FULL_PKG=${3:-false}
 if [ ${BUILD_FULL_PKG} = full ]; then
     BUILD_FULL_PKG=true
 fi
+
+echo "ROS2-${DISTRO} builder for the Raspberry Pi 🍓 (debian-${DEBIAN_DISTRO}-armv8)"
 
 sudo rm -rf ${SCRIPT_DIR}/ros2_ws/*.repos
 mkdir -p ${SCRIPT_DIR}/ros2_ws/src
