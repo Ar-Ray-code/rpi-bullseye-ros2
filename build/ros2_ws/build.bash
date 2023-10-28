@@ -3,6 +3,12 @@ SCRIPT_DIR=$(cd $(dirname $0); pwd)
 DISTRO=${1:-humble}
 BUILD_FULL_PKG=${2:-false}
 
+echo "=========== Build options ==========="
+echo "DISTRO: ${DISTRO}"
+echo "BUILD_FULL_PKG: ${BUILD_FULL_PKG}"
+echo "====================================="
+echo ""
+
 if [ -z "$DISTRO" ]; then
     DISTRO=humble
     echo "No distro specified, using default: ${DISTRO}"
@@ -38,6 +44,10 @@ fi
 
 rosdep update
 # rosdep install -r -y -i --from-paths /ros2_ws/src/ --rosdistro ${DISTRO}
+
+if [ ${DISTRO} = "iron" ]; then
+    rm -rf src/ignition*
+fi
 
 colcon build --install-base $(pwd)/${DISTRO}/ --merge-install --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS="-march=armv8-a+crc -mtune=cortex-a72 -O3" -DCMAKE_C_FLAGS="-march=armv8-a+crc -mtune=cortex-a72 -O3"
 
