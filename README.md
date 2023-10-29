@@ -1,8 +1,6 @@
-# rpi-bullseye-ROS2
+# Raspberry Pi OS ROS2
 
-Build ROS2-Humble for Raspbian-bullseye
-
-Scripts for build ROS2 to running on Raspbian (64bit).
+Build ROS2 for Raspbian
 
 ![](./images_for_readme//rviz_rpi.jpg)
 
@@ -18,9 +16,9 @@ Scripts for build ROS2 to running on Raspbian (64bit).
 | --- | --- | --- | --- |
 | iron | bullseye | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bullseye/ros-iron-desktop-0.3.2_20230611_arm64.deb)
 | iron | bookworm | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bookworm/ros-iron-desktop-0.3.2_20231028_arm64.deb)
-| humble | bullseye | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bullseye/ros-iron-desktop-0.3.2_20230611_arm64.deb) |
+| humble | bullseye | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bullseye/ros-iron-desktop-0.3.2_20230611_arm64.deb)
 
-### Install
+### Install (bullseye)
 
 - OS   : RaspberryPi OS bullseye arm64
 - ROS2 : ROS2 Humble
@@ -31,24 +29,26 @@ sudo apt install ./ros-humble-desktop-0.3.1_20221218_arm64.deb
 sudo pip install vcstool colcon-common-extensions
 ```
 
-### Uninstall
+### Install (bookworm)
+
+- OS   : RaspberryPi OS bookworm arm64
+- ROS2 : ROS2 Iron
+
+> When using Rviz2, switch the display server from Wayland to X11.
+
+
+
+```bash
+wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bookworm/ros-iron-desktop-0.3.2_20231028_arm64.deb
+sudo apt install ./ros-iron-desktop-0.3.2_20231028_arm64.deb
+sudo pip install --break-system-packages vcstool colcon-common-extensions
+```
+
+## Uninstall
 
 ```bash
 sudo apt remove ros-${DISTRO}-desktop
-# sudo apt remove ros-humble-desktop
-```
-
-### `DEBIAN/control` file
-
-```conf
-Package: ros-humble-desktop
-Version: 0.3.0
-Section: base
-Priority: optional
-Architecture: arm64
-Depends: bison,build-essential,curl,cmake,doxygen,git,gnupg,libacl1-dev,libasio-dev,libbullet-dev,libeigen3-dev,libfreetype-dev,liblog4cxx-dev,libopencv-dev,libresource-retriever-dev,libsdl2-dev,libtinyxml2-dev,libxaw7-dev,libxcursor-dev,libxrandr-dev,lsb-release,mingw-w64-i686-dev,pciutils,pyqt5-dev,python3-flake8,python3-lark,python3-netifaces,python3-numpy,python3-pip,python3-pydot,python3-pyqt5,python3-pyqt5.qtsvg,python3-pytest-cov,python3-rosdep2,python3-setuptools,python3-sip,qtbase5-dev,sip-dev,xterm,wget,zip
-Maintainer: Ar-Ray-code <ray255ar@gmail.com>
-Description: ROS2 humble for Raspberry Pi OS Bullseye 64bit
+# e.g. sudo apt remove ros-humble-desktop
 ```
 
 <br>
@@ -57,7 +57,7 @@ Description: ROS2 humble for Raspberry Pi OS Bullseye 64bit
 
 ```bash
 source /opt/ros/${DISTRO}/setup.bash
-# source /opt/ros/humble/setup.bash
+# e.g. source /opt/ros/humble/setup.bash
 ```
 
 <br>
@@ -149,4 +149,4 @@ source /opt/ros/humble/setup.bash
 ## About author
 
 - author : [Ar-Ray](https://github.com/Ar-Ray-code)
-- [Twitter](https://twitter.com/Ray255Ar)
+- [X (Twitter)](https://twitter.com/Ray255Ar)

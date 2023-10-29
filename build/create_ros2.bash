@@ -1,19 +1,21 @@
 #!/bin/bash
 
-echo "ROS2 builder for the Raspberry Pi 🍓 (debian-bullseye-armv8)"
-
 SCRIPT_DIR=`realpath $(dirname "$0")`
-DISTRO=${1-"iron"}
-BUILD_FULL_PKG=${2:-false}
+DISTRO=${1:-"iron"}
+DEBIAN_DISTRO=${2:-"bullseye"}
+BUILD_FULL_PKG=${3:-false}
 # if build_full_pkg = full, build all packages
 if [ ${BUILD_FULL_PKG} = full ]; then
     BUILD_FULL_PKG=true
 fi
 
+echo "ROS2-${DISTRO} builder for the Raspberry Pi 🍓 (debian-${DEBIAN_DISTRO}-armv8)"
+
 sudo rm -rf ${SCRIPT_DIR}/ros2_ws/*.repos
 mkdir -p ${SCRIPT_DIR}/ros2_ws/src
 
 echo "Distro: ${DISTRO}"
+echo "Debian distro: ${DEBIAN_DISTRO}"
 echo "Build full package: ${BUILD_FULL_PKG}"
 sleep 1
 
@@ -23,7 +25,9 @@ if [ "$(uname -m)" == "x86_64" ]; then
 fi
 
 cd $SCRIPT_DIR
-docker build -t ros2-${DISTRO}-aarch64 .
+docker build \
+    --build-arg "DEBIAN_DISTRO=${DEBIAN_DISTRO}" \
+    -t ros2-${DISTRO}-aarch64 .
 if [ $? -ne 0 ]; then
     echo "Failed to build docker image"
     exit 1
