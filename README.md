@@ -150,3 +150,15 @@ source /opt/ros/humble/setup.bash
 
 - author : [Ar-Ray](https://github.com/Ar-Ray-code)
 - [X (Twitter)](https://twitter.com/Ray255Ar)
+
+<br>
+
+## Support me!
+
+このプロジェクトは学生のために軽量なROS2環境を提供するためにあります。
+あなたがもしこのプロジェクトに助けられた場合、その助けを継続する支援をお願いします。
+
+This project is to provide a lightweight ROS2 environment for students.
+If you have been helped by this project, please help us continue that help.
+
+[sponsors/Ar-Ray-code](https://github.com/sponsors/Ar-Ray-code?preview=true)
