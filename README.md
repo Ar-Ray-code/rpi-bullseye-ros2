@@ -155,7 +155,7 @@ source /opt/ros/humble/setup.bash
 
 ## Support me!
 
-このプロジェクトは学生のために軽量なROS2環境を提供するためにあります。
+このプロジェクトは学生向けの軽量なROS2環境を提供するためにあります。
 あなたがもしこのプロジェクトに助けられた場合、その助けを継続する支援をお願いします。
 
 This project is to provide a lightweight ROS2 environment for students.
