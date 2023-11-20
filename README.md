@@ -16,7 +16,7 @@ Build ROS2 for Raspbian
 | --- | --- | --- | --- |
 | iron | bullseye | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bullseye/ros-iron-desktop-0.3.2_20230611_arm64.deb)
 | iron | bookworm | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bookworm/ros-iron-desktop-0.3.2_20231028_arm64.deb)
-| humble | bullseye | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bullseye/ros-iron-desktop-0.3.2_20230611_arm64.deb)
+| humble | bullseye | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bullseye/ros-humble-desktop-0.3.1_arm64.deb)
 
 ### Install (bullseye)
 
