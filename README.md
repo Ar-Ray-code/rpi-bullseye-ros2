@@ -146,6 +146,17 @@ source /opt/ros/humble/setup.bash
 
 <br>
 
+## Cases
+
+If rpi-bullseye-ros2 has made your project work, please let me know!✨
+
+| | URL |
+| --- | --- |
+| ROS-With-Arducam-ToF-Camera (arducam) | [URL](https://docs.arducam.com/Raspberry-Pi-Camera/Tof-camera/ROS-With-Arducam-ToF-Camera)
+| CoRE2024 AutoRobot team firmware | [scramble-robot/CoRE_AutoRobot_2024_raspberrypi](https://github.com/scramble-robot/CoRE_AutoRobot_2024_raspberrypi) |
+
+<br>
+
 ## About author
 
 - author : [Ar-Ray](https://github.com/Ar-Ray-code)
