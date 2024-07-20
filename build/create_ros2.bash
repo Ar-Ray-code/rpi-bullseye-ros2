@@ -4,6 +4,7 @@ SCRIPT_DIR=`realpath $(dirname "$0")`
 DISTRO=${1:-"jazzy"}
 DEBIAN_DISTRO=${2:-"bookworm"}
 BUILD_FULL_PKG=${3:-false}
+START_TIME=`date +%s`
 # if build_full_pkg = full, build all packages
 if [ ${BUILD_FULL_PKG} = full ]; then
     BUILD_FULL_PKG=true
@@ -46,10 +47,12 @@ cd $SCRIPT_DIR/ros2_ws
 #     exit 1
 # fi
 cd ${SCRIPT_DIR}
+STOP_TIME=`date +%s`
 
 echo ""
 echo "All done!"
 echo "--------------------------"
 echo "zip : -"
 echo "distro : ${DISTRO}"
+echo "Elapsed time: $((STOP_TIME - START_TIME)) seconds"
 echo "--------------------------"
