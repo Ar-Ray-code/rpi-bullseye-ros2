@@ -101,8 +101,7 @@ RUN pip install --break-system-packages \
 	importlib-metadata \
 	importlib-resources \
 	lark-parser \
-	cython \
-	typeguard
+	cython
 
 # cmake upgrade
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.27.2/cmake-3.27.2-linux-aarch64.sh -O cmake_install.sh && \
