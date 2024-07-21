@@ -76,6 +76,8 @@ RUN apt-get update && \
 	libspnav-dev \
 	libbluetooth-dev \
 	libcwiid-dev \
+	# generate_parameter_library
+	python3-typeguard \
 	# ros2_control
 	libfmt-dev \
 	librange-v3-dev && \
