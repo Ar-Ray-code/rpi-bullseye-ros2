@@ -14,3 +14,4 @@ libbluetooth-dev
 libcwiid-dev
 libfmt-dev
 librange-v3-dev
+python3-typeguard
