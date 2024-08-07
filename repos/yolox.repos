@@ -11,7 +11,7 @@ repositories:
     type: git
     url: https://gitlab.com/boldhearts/ros2_v4l2_camera.git
     version: humble
-  yolox_ros:
+  YOLOX-ROS:
     type: git
     url: https://github.com/Ar-Ray-code/YOLOX-ROS.git
     version: humble
