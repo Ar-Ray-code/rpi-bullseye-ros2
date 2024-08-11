@@ -1,0 +1,41 @@
+name: ci_jazzy
+
+on:
+  push:
+    branches:
+      - "jazzy"
+  pull_request:
+    types: [opened, synchronize, labeled]
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+    if: |
+      ((github.event.action == 'labeled') && (github.event.label.name == 'TESTING') && (github.base_ref == 'jazzy' )) ||
+      ((github.event.action == 'synchronize') && (github.base_ref == 'jazzy') && contains(github.event.pull_request.labels.*.name, 'TESTING')) ||
+      (github.ref_name == 'jazzy')
+    container:
+      image: osrf/ros:${{ matrix.ros_distribution }}-desktop
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04]
+        ros_distribution: [jazzy]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ros-tooling/setup-ros@v0.7
+      - name: Build and Test
+        uses: ros-tooling/action-ros-ci@v0.3
+        with:
+          target-ros2-distro: ${{ matrix.ros_distribution }}
+          vcs-repo-file-url: |
+            repos/cyclonedds.repos
+            repos/ds.repos
+            repos/generate_parameter_library.repos
+            repos/micro_ros_agent.repos
+            repos/nmea.repos
+            repos/rqt_image_view.repos
+            repos/urg.repos
+            repos/velodyne.repos
+            repos/webcam.repos
