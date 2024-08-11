@@ -1,9 +1,9 @@
-name: ci_jazzy
+name: ci_iron
 
 on:
   push:
     branches:
-      - "jazzy"
+      - "iron"
   pull_request:
     types: [opened, synchronize, labeled]
 
@@ -20,7 +20,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-24.04]
-        ros_distribution: [jazzy]
+        ros_distribution: [iron]
     steps:
       - uses: actions/checkout@v3
       - uses: ros-tooling/setup-ros@v0.7
