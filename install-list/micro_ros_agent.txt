@@ -1,0 +1,2 @@
+libfmt-dev
+libspdlog-dev
