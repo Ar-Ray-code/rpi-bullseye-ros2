@@ -1,0 +1,42 @@
+name: ci_iron
+
+on:
+  push:
+    branches:
+      - "iron"
+  pull_request:
+    types: [opened, synchronize, labeled]
+
+jobs:
+  ci:
+    runs-on: ${{ matrix.os }}
+    if: |
+      ((github.event.action == 'labeled') && (github.event.label.name == 'TESTING') && (github.base_ref == 'iron' )) ||
+      ((github.event.action == 'synchronize') && (github.base_ref == 'iron') && contains(github.event.pull_request.labels.*.name, 'TESTING')) ||
+      (github.ref_name == 'iron')
+    container:
+      image: osrf/ros:${{ matrix.ros_distribution }}-desktop
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04]
+        ros_distribution: [iron]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ros-tooling/setup-ros@v0.7
+        with:
+          required-ros-distributions: ${{ matrix.ros_distribution }}
+      - name: Build and Test
+        uses: ros-tooling/action-ros-ci@v0.3
+        with:
+          target-ros2-distro: ${{ matrix.ros_distribution }}
+          skip-tests: true
+          vcs-repo-file-url: |
+            repos/cyclonedds.repos
+            repos/ds.repos
+            repos/generate_parameter_library.repos
+            repos/micro_ros_agent.repos
+            repos/nmea.repos
+            repos/urg.repos
+            repos/velodyne.repos
