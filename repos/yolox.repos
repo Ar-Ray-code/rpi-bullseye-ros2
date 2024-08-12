@@ -14,7 +14,7 @@ repositories:
   YOLOX-ROS:
     type: git
     url: https://github.com/Ar-Ray-code/YOLOX-ROS.git
-    version: humble
+    version: ncs2-jazzy
   bbox_ex_msgs:
     type: git
     url: https://github.com/Ar-Ray-code/bbox_ex_msgs.git
