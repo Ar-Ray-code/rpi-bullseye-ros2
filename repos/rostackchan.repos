@@ -78,7 +78,7 @@ repositories:
   DynamixelSDK:
     type: git
     url: https://github.com/ROBOTIS-GIT/DynamixelSDK.git
-      version: humble-devel
+    version: humble-devel
   dynamixel-workbench:
     type: git
     url: https://github.com/ROBOTIS-GIT/dynamixel-workbench.git
