@@ -11,6 +11,10 @@ repositories:
     type: git
     url: https://github.com/HarvestX/h6x_serial_interface.git
     version: humble
+  diagnostics:
+    type: git
+    url: https://github.com/ros/diagnostics.git
+    version: ros2-jazzy
   ros2_control:
     type: git
     url: https://github.com/ros-controls/ros2_control.git
@@ -71,3 +75,10 @@ repositories:
     type: git
     url: https://github.com/dynamixel-community/dynamixel_hardware.git
     version: jazzy
+  DynamixelSDK:
+    type: git
+    url: https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+    version
+  dynamixel-workbench:
+    type: git
+    url: https://github.com/ROBOTIS-GIT/dynamixel-workbench.git
