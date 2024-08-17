@@ -67,3 +67,7 @@ repositories:
     type: git
     url: https://github.com/PickNikRobotics/RSL.git
     version: main
+  dynamixel_hardware:
+    type: git
+    url: https://github.com/dynamixel-community/dynamixel_hardware.git
+    version: jazzy
