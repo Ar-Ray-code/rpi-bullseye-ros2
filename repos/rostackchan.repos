@@ -18,11 +18,11 @@ repositories:
   ros2_control:
     type: git
     url: https://github.com/ros-controls/ros2_control.git
-    version: humble
+    version: iron
   control_msgs:
     type: git
     url: https://github.com/ros-controls/control_msgs.git
-    version: humble
+    version: iron
   backward_ros:
     type: git
     url: https://github.com/pal-robotics/backward_ros.git
@@ -46,7 +46,7 @@ repositories:
   control_toolbox:
     type: git
     url: https://github.com/ros-controls/control_toolbox.git
-    version: foxy
+    version: ros2-master
   filters:
     type: git
     url: https://github.com/ros/filters.git
