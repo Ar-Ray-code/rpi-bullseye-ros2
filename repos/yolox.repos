@@ -11,6 +11,10 @@ repositories:
     type: git
     url: https://gitlab.com/boldhearts/ros2_v4l2_camera.git
     version: humble
+  usb_cam:
+    type: git
+    url: https://github.com/ros-drivers/usb_cam.git
+    version: ros2
   YOLOX-ROS:
     type: git
     url: https://github.com/Ar-Ray-code/YOLOX-ROS.git
