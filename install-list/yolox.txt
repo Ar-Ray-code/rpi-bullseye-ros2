@@ -1,1 +1,2 @@
 libboost-python-dev
+python3-typeguard
