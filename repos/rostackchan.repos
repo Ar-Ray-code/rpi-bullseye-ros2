@@ -38,7 +38,7 @@ repositories:
   ros2_controllers:
     type: git
     url: https://github.com/ros-controls/ros2_controllers.git
-    version: humble
+    version: iron
   angles:
     type: git
     url: https://github.com/ros/angles.git
