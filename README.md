@@ -2,7 +2,16 @@
 
 Build ROS2 for Raspbian
 
+
+## Books📚
+
+- 🆕 [RaspberryPi OSではじめるROS 2 ② (Zenn)](https://zenn.dev/array/books/raspi_os_de_hajimeru_ros2_2)
+- [RaspberryPi OSではじめるROS2 (Zenn)](https://zenn.dev/array/books/5efdb438cf8be3)
+
+<br>
+
 ![](./images_for_readme//rviz_rpi.jpg)
+
 
 <br>
 
