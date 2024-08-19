@@ -38,6 +38,7 @@ jobs:
             repos/generate_parameter_library.repos
             repos/micro_ros_agent.repos
             repos/nmea.repos
+            repos/rostackchan.repos
             repos/rqt_image_view.repos
             repos/urg.repos
             repos/velodyne.repos
