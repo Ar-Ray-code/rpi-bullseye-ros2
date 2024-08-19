@@ -22,7 +22,7 @@ repositories:
   control_msgs:
     type: git
     url: https://github.com/ros-controls/control_msgs.git
-    version: iron
+    version: 	master
   backward_ros:
     type: git
     url: https://github.com/pal-robotics/backward_ros.git
