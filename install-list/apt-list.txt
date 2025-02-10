@@ -30,6 +30,7 @@ libopencv-dev
 pyqt5-dev
 libbullet-dev
 sip-dev
+python3-empy
 python3-pyqt5
 python3-numpy
 python3-pydot

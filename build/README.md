@@ -1,9 +1,8 @@
 # Building ROS2 base pkg using Jetson
 
 ## Requirements
-
-- Jetson AGX Xavier or Orin (aarch64) or AWS Ubuntu-arm64
-- Docker (aarch64)
+- Docker (ARM64)
+- 12.0GB RAM Resource (Please check Docker.desktop/Settings/Resources)
 
 <br>
 

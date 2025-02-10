@@ -22,6 +22,7 @@ cmake --version
 cd ${SCRIPT_DIR}
 rm -rf ${SCRIPT_DIR}/ros2.repos
 wget https://raw.githubusercontent.com/ros2/ros2/${DISTRO}/ros2.repos
+mkdir -p src/
 
 
 if [ ${BUILD_FULL_PKG} = true ]; then

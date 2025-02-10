@@ -51,6 +51,7 @@ RUN apt-get update && \
 	python3-pydot \
 	python3-pyqt5.qtsvg \
 	python3-netifaces \
+	python3-empy \
 	libfreetype-dev \
 	libresource-retriever-dev \
 	python3-jinja2 \
