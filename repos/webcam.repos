@@ -10,4 +10,4 @@ repositories:
   usb_cam:
     type: git
     url: https://github.com/ros-drivers/usb_cam.git
-    version: ros2
+    version: 0.8.1
