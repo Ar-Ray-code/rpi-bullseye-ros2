@@ -164,6 +164,7 @@ If rpi-bullseye-ros2 has made your project work, please let me know!✨
 | --- | --- |
 | ROS-With-Arducam-ToF-Camera (arducam) | [URL](https://docs.arducam.com/Raspberry-Pi-Camera/Tof-camera/ROS-With-Arducam-ToF-Camera)
 | CoRE2024 AutoRobot team firmware | [scramble-robot/CoRE_AutoRobot_2024_raspberrypi](https://github.com/scramble-robot/CoRE_AutoRobot_2024_raspberrypi) |
+| RPi5 + Hailo-8 application exampoles | [kyrikakis/hailo_tappas_ros2](https://github.com/kyrikakis/hailo_tappas_ros2) |
 
 <br>
 
