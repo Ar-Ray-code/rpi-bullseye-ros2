@@ -1,0 +1,6 @@
+libsimde-dev
+libmatio-dev
+libpcl-dev
+libmrtd-dev
+libpugixml-dev
+libgeographiclib-dev

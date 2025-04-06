@@ -1,4 +1,4 @@
-ARG DEBIAN_DISTRO=bullseye
+ARG DEBIAN_DISTRO=bookworm
 FROM arm64v8/debian:${DEBIAN_DISTRO}
 
 ENV TZ=Asia/Tokyo
@@ -81,7 +81,13 @@ RUN apt-get update && \
 	python3-typeguard \
 	# ros2_control
 	libfmt-dev \
-	librange-v3-dev && \
+	librange-v3-dev \
+	# autoware-core
+	libsimde-dev \
+	libmatio-dev \
+	libmrtd-dev \
+	libpugixml-dev \
+	libgeographiclib-dev && \
 	rm -rf /var/lib/apt/lists/*
 
 # RUN pip install --upgrade pip

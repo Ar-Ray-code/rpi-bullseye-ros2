@@ -1,0 +1,3 @@
+PCL_INCLUDE_PATH=$(pkg-config --variable=includedir pcl_common 2>/dev/null)
+EIGEN_INCLUDE_PATH=/usr/include/eigen3
+export CPLUS_INCLUDE_PATH=${PCL_INCLUDE_PATH}:${EIGEN_INCLUDE_PATH}:$CPLUS_INCLUDE_PATH

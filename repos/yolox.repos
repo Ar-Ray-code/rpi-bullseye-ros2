@@ -23,19 +23,15 @@ repositories:
     type: git
     url: https://github.com/Ar-Ray-code/YOLOX-ROS.git
     version: ncs2-jazzy
-  bbox_ex_msgs:
-    type: git
-    url: https://github.com/Ar-Ray-code/bbox_ex_msgs.git
-    version: main
   generate_parameter_library:
     type: git
     url: https://github.com/PickNikRobotics/generate_parameter_library.git
-    version: main
+    version: 0.4.0
   cpp_polyfills:
     type: git
     url: https://github.com/PickNikRobotics/cpp_polyfills.git
-    version: main
+    version: 1.0.2
   RSL:
     type: git
     url: https://github.com/PickNikRobotics/RSL.git
-    version: main
+    version: 1.1.0

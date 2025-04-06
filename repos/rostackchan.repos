@@ -30,7 +30,7 @@ repositories:
   realtime_tools:
     type: git
     url: https://github.com/ros-controls/realtime_tools.git
-    version: master
+    version: 4.2.0
   xacro:
     type: git
     url: https://github.com/ros/xacro.git
@@ -42,11 +42,11 @@ repositories:
   angles:
     type: git
     url: https://github.com/ros/angles.git
-    version: ros2
+    version: 1.16.0
   control_toolbox:
     type: git
     url: https://github.com/ros-controls/control_toolbox.git
-    version: ros2-master
+    version: 5.1.0
   filters:
     type: git
     url: https://github.com/ros/filters.git
@@ -58,19 +58,19 @@ repositories:
   kinematics_interface:
     type: git
     url: https://github.com/ros-controls/kinematics_interface.git
-    version: master
+    version: 2.0.0
   generate_parameter_library:
     type: git
     url: https://github.com/PickNikRobotics/generate_parameter_library.git
-    version: main
+    version: 0.4.0
   cpp_polyfills:
     type: git
     url: https://github.com/PickNikRobotics/cpp_polyfills.git
-    version: main
+    version: 1.0.2
   RSL:
     type: git
     url: https://github.com/PickNikRobotics/RSL.git
-    version: main
+    version: 1.1.0
   dynamixel_hardware:
     type: git
     url: https://github.com/dynamixel-community/dynamixel_hardware.git
