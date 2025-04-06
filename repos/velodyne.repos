@@ -5,9 +5,9 @@ repositories:
     version: ros2-jazzy
   velodyne:
     type: git
-    url: https://github.com/thomasemter/velodyne.git
-    version: ros2
+    url: https://github.com/ros-drivers/velodyne.git
+    version: 2.5.1
   angles:
     type: git
     url: https://github.com/ros/angles.git
-    version: ros2
+    version: 1.16.0

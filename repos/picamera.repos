@@ -6,7 +6,7 @@ repositories:
   vision_opencv:
     type: git
     url: https://github.com/ros-perception/vision_opencv.git
-    version: iron
+    version: 4.1.0
   picamera_ros2:
     type: git
     url: https://github.com/Ar-Ray-code/picamera_ros2
@@ -14,12 +14,12 @@ repositories:
   generate_parameter_library:
     type: git
     url: https://github.com/PickNikRobotics/generate_parameter_library.git
-    version: main
+    version: 0.4.0
   cpp_polyfills:
     type: git
     url: https://github.com/PickNikRobotics/cpp_polyfills.git
-    version: main
+    version: 1.0.2
   RSL:
     type: git
     url: https://github.com/PickNikRobotics/RSL.git
-    version: main
+    version: 1.1.0
