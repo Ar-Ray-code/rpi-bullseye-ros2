@@ -7,6 +7,10 @@ repositories:
     type: git
     url: https://github.com/ros-perception/vision_opencv.git
     version: 4.1.0
+  orbbec_sdk_ros2:
+    type: git
+    url: https://github.com/orbbec/OrbbecSDK_ROS2.git
+    version: v2-main
   diagnostics:
     type: git
     url: https://github.com/ros/diagnostics.git
