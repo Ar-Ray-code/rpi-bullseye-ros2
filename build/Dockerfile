@@ -82,6 +82,8 @@ RUN apt-get update && \
 	# ros2_control
 	libfmt-dev \
 	librange-v3-dev \
+	# stackchan
+	libserial-dev \
 	# autoware-core
 	libsimde-dev \
 	libmatio-dev \
