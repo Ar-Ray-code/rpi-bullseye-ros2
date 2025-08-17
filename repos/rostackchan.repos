@@ -42,7 +42,7 @@ repositories:
   ros2_control_cmake:
     type: git
     url: https://github.com/ros-controls/ros2_control_cmake.git
-    version: jazzy
+    version: master
   angles:
     type: git
     url: https://github.com/ros/angles.git
