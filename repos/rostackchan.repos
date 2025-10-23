@@ -18,11 +18,11 @@ repositories:
   ros2_control:
     type: git
     url: https://github.com/ros-controls/ros2_control.git
-    version: iron
+    version: jazzy
   control_msgs:
     type: git
     url: https://github.com/ros-controls/control_msgs.git
-    version: iron
+    version: jazzy
   backward_ros:
     type: git
     url: https://github.com/pal-robotics/backward_ros.git
@@ -30,7 +30,7 @@ repositories:
   realtime_tools:
     type: git
     url: https://github.com/ros-controls/realtime_tools.git
-    version: 4.2.0
+    version: jazzy
   xacro:
     type: git
     url: https://github.com/ros/xacro.git
@@ -38,7 +38,11 @@ repositories:
   ros2_controllers:
     type: git
     url: https://github.com/ros-controls/ros2_controllers.git
-    version: iron
+    version: jazzy
+  ros2_control_cmake:
+    type: git
+    url: https://github.com/ros-controls/ros2_control_cmake.git
+    version: master
   angles:
     type: git
     url: https://github.com/ros/angles.git
@@ -46,7 +50,7 @@ repositories:
   control_toolbox:
     type: git
     url: https://github.com/ros-controls/control_toolbox.git
-    version: 5.1.0
+    version: jazzy
   filters:
     type: git
     url: https://github.com/ros/filters.git
@@ -78,8 +82,8 @@ repositories:
   DynamixelSDK:
     type: git
     url: https://github.com/ROBOTIS-GIT/DynamixelSDK.git
-    version: humble-devel
+    version: jazzy
   dynamixel-workbench:
     type: git
     url: https://github.com/ROBOTIS-GIT/dynamixel-workbench.git
-    version: humble-devel
+    version: jazzy

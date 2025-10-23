@@ -82,6 +82,9 @@ RUN apt-get update && \
 	# ros2_control
 	libfmt-dev \
 	librange-v3-dev \
+	libcap-dev \
+	# stackchan
+	libserial-dev \
 	# autoware-core
 	libsimde-dev \
 	libmatio-dev \
@@ -120,9 +123,9 @@ RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/openvino/debi
 	apt-get install -y ./openvino-2022-raspbian-bullseye-arm64-0.1.0-20221219.deb
 
 # realsense
-RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/librealsense/debian/bullseye/librealsense2-dev_2.54.1_arm64.deb && \
-	apt-get install -y ./librealsense2-dev_2.54.1_arm64.deb && \
-	rm ./librealsense2-dev_2.54.1_arm64.deb && \
+RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/librealsense/debian/bookworm/librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
+	apt-get install -y ./librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
+	rm ./librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
 	echo "export realsense2_DIR=/usr/local/lib/aarch64-linux-gnu/cmake/realsense2/" >> ~/.bashrc && \
 	echo "export OpenCV_DIR=/usr/lib/aarch64-linux-gnu/cmake/opencv4/" >> ~/.bashrc
 

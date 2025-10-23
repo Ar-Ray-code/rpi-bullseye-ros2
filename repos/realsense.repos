@@ -10,7 +10,7 @@ repositories:
   realsense-ros:
     type: git
     url: https://github.com/IntelRealSense/realsense-ros.git
-    version: 4.54.1
+    version: 4.56.4
   diagnostics:
     type: git
     url: https://github.com/ros/diagnostics.git
