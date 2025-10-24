@@ -1,4 +1,4 @@
-ARG DEBIAN_DISTRO=bookworm
+ARG DEBIAN_DISTRO=trixie
 FROM arm64v8/debian:${DEBIAN_DISTRO}
 
 ENV TZ=Asia/Tokyo
@@ -40,11 +40,9 @@ RUN apt-get update && \
 	gnupg \
 	lsb-release \
 	qtbase5-dev \
-	python3-sip \
 	libopencv-dev \
 	pyqt5-dev \
 	libbullet-dev \
-	sip-dev \
 	libxaw7-dev \
 	python3-pyqt5 \
 	python3-numpy \
@@ -59,6 +57,14 @@ RUN apt-get update && \
 	liblttng-ust-dev \
 	# jazzy
 	liblttng-ctl-dev \
+	# kilted
+	python3-pyqt5.sip \
+	python3-sipbuild \
+	sip-tools \
+	shiboken6 \
+	ca-certificates \
+	libiceoryx-posh2 \
+	nlohmann-json3-dev \
 	# YOLOX
 	libboost-python-dev \
 	# Realsense
@@ -129,6 +135,11 @@ RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/librealsense/
 	echo "export realsense2_DIR=/usr/local/lib/aarch64-linux-gnu/cmake/realsense2/" >> ~/.bashrc && \
 	echo "export OpenCV_DIR=/usr/lib/aarch64-linux-gnu/cmake/opencv4/" >> ~/.bashrc
 
+# curgo
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
+RUN rustup toolchain install 1.85.0 && rustup default 1.85.0
+RUN cargo --version && rustc --version
 
 RUN pip install --break-system-packages vcstool colcon-common-extensions
 

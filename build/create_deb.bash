@@ -1,6 +1,6 @@
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-TARGET_DISTRO=${1-"jazzy"}
+TARGET_DISTRO=${1-"kilted"}
 ARCH=${2-"arm64"}
 ROS_INSTALL_DIR=${3-"/opt/ros"}
 VERSION=$(cat ${SCRIPT_DIR}/config/version.txt)
@@ -44,7 +44,7 @@ echo "Priority: optional" >> ${CONTROL_FILE}
 echo "Architecture: ${ARCH}" >> ${CONTROL_FILE}
 echo "Depends: $DEPENDS" >> ${CONTROL_FILE}
 echo "Maintainer: Ar-Ray-code <ray255ar@gmail.com>" >> ${CONTROL_FILE}
-echo "Description: ROS2 $TARGET_DISTRO for Raspberry Pi OS Bookworm 64bit" >> ${CONTROL_FILE}
+echo "Description: ROS2 $TARGET_DISTRO for Raspberry Pi OS trixie 64bit" >> ${CONTROL_FILE}
 
 dpkg-deb --build -Z xz --root-owner-group ${DEB_ROOT} ${SCRIPT_DIR}/deb/${DEB_NAME}.deb
 

@@ -2,7 +2,7 @@
 
 SCRIPT_DIR=`realpath $(dirname "$0")`
 DISTRO=${1:-"jazzy"}
-DEBIAN_DISTRO=${2:-"bookworm"}
+DEBIAN_DISTRO=${2:-"trixie"}
 BUILD_FULL_PKG=${3:-false}
 
 # if build_full_pkg = full, build all packages
