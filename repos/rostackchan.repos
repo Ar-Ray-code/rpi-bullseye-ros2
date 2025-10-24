@@ -95,3 +95,7 @@ repositories:
     type: git
     url: https://github.com/ros2/message_filters.git
     version: jazzy
+  pal_statistics:
+    type: git
+    url: https://github.com/pal-robotics/pal_statistics.git
+    version: 2.7.0
