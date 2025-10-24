@@ -1,2 +1,4 @@
+libcap-dev
 libfmt-dev
 librange-v3-dev
+libserial-dev

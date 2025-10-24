@@ -87,3 +87,11 @@ repositories:
     type: git
     url: https://github.com/ROBOTIS-GIT/dynamixel-workbench.git
     version: jazzy
+  geometry2:
+    type: git
+    url: https://github.com/ros2/geometry2.git
+    version: jazzy
+  message_filters:
+    type: git
+    url: https://github.com/ros2/message_filters.git
+    version: jazzy
