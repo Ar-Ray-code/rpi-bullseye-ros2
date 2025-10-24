@@ -95,3 +95,35 @@ repositories:
     type: git
     url: https://github.com/pal-robotics/pal_statistics.git
     version: 2.7.0
+  moveit_msgs:
+    type: git
+    url: https://github.com/moveit/moveit_msgs.git
+    version: iron
+  moveit2:
+    type: git
+    url: https://github.com/moveit/moveit2.git
+    version: jazzy
+  object_recognition_msgs:
+    type: git
+    url: https://github.com/wg-perception/object_recognition_msgs.git
+    version: 2.0.0
+  octomap_msgs:
+    type: git
+    url: https://github.com/OctoMap/octomap_msgs.git
+    version: 2.0.1
+  osqp_vendor:
+    type: git
+    url: https://github.com/tier4/osqp_vendor.git
+    version: 0.2.0
+  ruckig:
+    type: git
+    url: https://github.com/pantor/ruckig.git
+    version: v0.15.3
+  srdfdom:
+    type: git
+    url: https://github.com/moveit/srdfdom.git
+    version: 2.0.8
+  geometric_shapes:
+    type: git
+    url: https://github.com/moveit/geometric_shapes.git
+    version: 2.3.3
