@@ -3,6 +3,3 @@ libfmt-dev
 librange-v3-dev
 libserial-dev
 python3-filelock
-libeigen-stl-containers-dev
-libfcl-dev
-libgeometric-shapes-dev
