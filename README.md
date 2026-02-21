@@ -23,10 +23,10 @@ Build ROS2 for Raspbian
 
 | Distro | Debian | arm64-desktop | arm64-full |
 | --- | --- | --- | --- |
-| jazzy | bookworm | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bookworm/ros-jazzy-desktop-0.3.2_20240525_arm64.deb) |
-| iron | bullseye | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bullseye/ros-iron-desktop-0.3.2_20230611_arm64.deb)
-| iron | bookworm | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bookworm/ros-iron-desktop-0.3.2_20231028_arm64.deb)
-| humble | bullseye | [URL](https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bullseye/ros-humble-desktop-0.3.1_arm64.deb)
+| jazzy | bookworm | [URL](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/ros-jazzy-desktop-0.3.2_20240525_arm64.deb) |
+| iron | bullseye | [URL](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/ros-iron-desktop-0.3.2_20230611_arm64.deb)
+| iron | bookworm | [URL](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/ros-iron-desktop-0.3.2_20230929_arm64.deb)
+| humble | bullseye | [URL](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/ros-humble-desktop-0.3.1_arm64.deb)
 
 ### Install (bullseye)
 
@@ -49,7 +49,7 @@ sudo pip install vcstool colcon-common-extensions
 
 
 ```bash
-wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/ros2-desktop/debian/bookworm/ros-jazzy-desktop-0.3.2_20240525_arm64.deb
+wget https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/ros-jazzy-desktop-0.3.2_20240525_arm64.deb
 sudo apt install ./ros-jazzy-desktop-0.3.2_20240525_arm64.deb
 pip install --break-system-packages empy==3.3.4
 sudo pip install --break-system-packages vcstool colcon-common-extensions

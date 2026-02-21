@@ -119,15 +119,15 @@ RUN wget https://github.com/Kitware/CMake/releases/download/v3.27.2/cmake-3.27.2
 	./cmake_install.sh --skip-license --prefix=/usr/local
 
 # OpenVINO
-RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/openvino/debian/bullseye/openvino-2022-raspbian-bullseye-arm64-0.1.0-20221219.deb && \
+RUN wget https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/openvino-2022-raspbian-bullseye-arm64-0.1.0-20221219.deb && \
 	apt-get install -y ./openvino-2022-raspbian-bullseye-arm64-0.1.0-20221219.deb
 
 # realsense
-RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/librealsense/debian/bookworm/librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
-	apt-get install -y ./librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
-	rm ./librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
-	echo "export realsense2_DIR=/usr/local/lib/aarch64-linux-gnu/cmake/realsense2/" >> ~/.bashrc && \
-	echo "export OpenCV_DIR=/usr/lib/aarch64-linux-gnu/cmake/opencv4/" >> ~/.bashrc
+# RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/librealsense/debian/bookworm/librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
+# 	apt-get install -y ./librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
+# 	rm ./librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
+# 	echo "export realsense2_DIR=/usr/local/lib/aarch64-linux-gnu/cmake/realsense2/" >> ~/.bashrc && \
+# 	echo "export OpenCV_DIR=/usr/lib/aarch64-linux-gnu/cmake/opencv4/" >> ~/.bashrc
 
 
 RUN pip install --break-system-packages vcstool colcon-common-extensions
