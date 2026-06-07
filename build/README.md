@@ -1,4 +1,4 @@
-# Building ROS2 base pkg using Jetson
+# Building ROS2 desktop pkg using Docker
 
 ## Requirements
 - Docker (ARM64)
@@ -28,27 +28,25 @@ newgrp docker
 
 <br>
 
-## build ROS2-base
+## build ROS2 desktop
 
 ```bash
 git clone https://github.com/Ar-Ray-code/rpi-bullseye-ros2.git
 cd rpi-bullseye-ros2/build
 
-bash create_ros2.bash humble
+bash create_ros2.bash lyrical
 ```
-After all builds are successful
+
+To build the rpi-bullseye-ros2 full package set:
 
 ```bash
-ls
-# > humble-aarch64.zip
+bash create_ros2.bash lyrical full
 ```
 
 <br>
 
-## Install ROS2 to Raspbian-Bullseye (aarch64)
+## Create Debian package
 
 ```bash
-# Raspbian-Bullseye
-sudo mkdir /opt/ros -p
-sudo unzip humble-aarch64.zip -d /opt/ros
+bash create_deb.bash lyrical arm64 /opt/ros
 ```

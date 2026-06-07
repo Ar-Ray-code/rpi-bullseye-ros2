@@ -2,7 +2,7 @@ repositories:
   ros-perception/image_common:
     type: git
     url: https://github.com/ros-perception/image_common.git
-    version: jazzy
+    version: lyrical
   vision_opencv:
     type: git
     url: https://github.com/ros-perception/vision_opencv.git
@@ -10,8 +10,8 @@ repositories:
   realsense-ros:
     type: git
     url: https://github.com/IntelRealSense/realsense-ros.git
-    version: 4.56.4
+    version: 4.57.7
   diagnostics:
     type: git
     url: https://github.com/ros/diagnostics.git
-    version: ros2-jazzy
+    version: ros2

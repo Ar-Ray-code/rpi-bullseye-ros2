@@ -2,12 +2,12 @@ repositories:
   ros-perception/image_common:
     type: git
     url: https://github.com/ros-perception/image_common.git
-    version: jazzy
+    version: lyrical
   vision_opencv:
     type: git
     url: https://github.com/ros-perception/vision_opencv.git
-    version: iron
+    version: 4.1.0
   usb_cam:
     type: git
     url: https://github.com/ros-drivers/usb_cam.git
-    version: 0.8.1
+    version: 772b25f4e2e8f94f54501a32d36c3bffca56141d

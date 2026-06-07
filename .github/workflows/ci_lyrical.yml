@@ -1,0 +1,90 @@
+name: ci_lyrical
+
+on:
+  push:
+    branches:
+      - "jazzy"
+      - "lyrical"
+  pull_request:
+    types: [opened, synchronize, labeled]
+  workflow_dispatch:
+    inputs:
+      build_profile:
+        description: "Build profile"
+        required: false
+        default: "desktop"
+        type: choice
+        options:
+          - "desktop"
+          - "full"
+
+concurrency:
+  group: ci-lyrical-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  docker-build:
+    runs-on: ${{ matrix.os }}
+    if: |
+      ((github.event.action == 'labeled') && (github.event.label.name == 'TESTING') && ((github.base_ref == 'jazzy') || (github.base_ref == 'lyrical'))) ||
+      ((github.event.action == 'synchronize') && ((github.base_ref == 'jazzy') || (github.base_ref == 'lyrical')) && contains(github.event.pull_request.labels.*.name, 'TESTING')) ||
+      (github.ref_name == 'jazzy') ||
+      (github.ref_name == 'lyrical') ||
+      (github.event_name == 'workflow_dispatch')
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-26.04]
+        ros_distribution: [lyrical]
+    env:
+      BUILD_PROFILE: ${{ (github.event_name == 'workflow_dispatch' && inputs.build_profile) || 'desktop' }}
+    steps:
+      - name: Checkout rpi-bullseye-ros2
+        uses: actions/checkout@v4
+
+      - name: Install host CI dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y python3-yaml
+
+      - name: Show runner and Docker info
+        run: |
+          uname -a
+          lsb_release -a || true
+          docker version
+          docker info
+          df -h
+
+      - name: Validate repos manifests
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          import yaml
+
+          for path in pathlib.Path("repos").glob("**/*.repos"):
+              yaml.safe_load(path.read_text())
+          print("repos yaml ok")
+          PY
+
+      - name: Build ROS 2 lyrical for Debian trixie
+        run: |
+          cd build
+          bash create_ros2.bash \
+            "${{ matrix.ros_distribution }}" \
+            "${BUILD_PROFILE}"
+
+      - name: Smoke test lyrical workspace
+        run: |
+          docker run --rm \
+            -v "${PWD}/build/ros2_ws:/ros2_ws" \
+            "ros2-${{ matrix.ros_distribution }}-aarch64" \
+            bash -lc '
+              source /ros2_ws/${{ matrix.ros_distribution }}/setup.bash
+              ros2 --help | sed -n "1,8p"
+              printf "PKG_COUNT="
+              ros2 pkg list | wc -l
+            '

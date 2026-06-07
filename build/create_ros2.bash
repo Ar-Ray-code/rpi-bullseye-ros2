@@ -1,23 +1,23 @@
 #!/bin/bash
 
 SCRIPT_DIR=`realpath $(dirname "$0")`
-DISTRO=${1:-"jazzy"}
-DEBIAN_DISTRO=${2:-"bookworm"}
-BUILD_FULL_PKG=${3:-false}
+DISTRO=${1:-"lyrical"}
+BUILD_PROFILE=${2:-"desktop"}
+DEBIAN_DISTRO="trixie"
 
-# if build_full_pkg = full, build all packages
-if [ ${BUILD_FULL_PKG} = full ]; then
-    BUILD_FULL_PKG=true
+if [ "${BUILD_PROFILE}" != "desktop" ] && [ "${BUILD_PROFILE}" != "full" ]; then
+    echo "Usage: bash build/create_ros2.bash [rosdistro] [desktop|full]"
+    exit 1
 fi
 
 echo "ROS2-${DISTRO} builder for the Raspberry Pi 🍓 (debian-${DEBIAN_DISTRO}-armv8)"
 
-sudo rm -rf ${SCRIPT_DIR}/ros2_ws/*.repos
+rm -rf ${SCRIPT_DIR}/ros2_ws/*.repos
 mkdir -p ${SCRIPT_DIR}/ros2_ws/src
 
 echo "Distro: ${DISTRO}"
 echo "Debian distro: ${DEBIAN_DISTRO}"
-echo "Build full package: ${BUILD_FULL_PKG}"
+echo "Build profile: ${BUILD_PROFILE}"
 sleep 1
 
 # setup qemu (if this computer arch is x86_64)
@@ -34,12 +34,25 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+LOCAL_REPOS_DIR=`realpath ${SCRIPT_DIR}/../repos`
 START_TIME=`date +%s`
-docker run -it --rm --net=host \
+DOCKER_TTY_ARGS=()
+if [ -t 0 ]; then
+    DOCKER_TTY_ARGS=(-it)
+fi
+
+docker run "${DOCKER_TTY_ARGS[@]}" --rm --net=host \
     -v $SCRIPT_DIR/ros2_ws:/ros2_ws \
+    -v ${LOCAL_REPOS_DIR}:/rpi-bullseye-ros2/repos:ro \
     ros2-${DISTRO}-aarch64 \
-    /bin/bash -c "bash /ros2_ws/build.bash ${DISTRO} ${BUILD_FULL_PKG}"
+    /bin/bash -c "bash /ros2_ws/build.bash ${DISTRO} ${BUILD_PROFILE}"
+BUILD_EXIT_CODE=$?
 STOP_TIME=`date +%s`
+
+if [ ${BUILD_EXIT_CODE} -ne 0 ]; then
+    echo "Failed to build ROS2"
+    exit ${BUILD_EXIT_CODE}
+fi
 
 cd $SCRIPT_DIR/ros2_ws
 

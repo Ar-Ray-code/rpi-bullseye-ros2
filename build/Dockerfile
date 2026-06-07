@@ -1,9 +1,11 @@
-ARG DEBIAN_DISTRO=bookworm
+ARG DEBIAN_DISTRO=trixie
 FROM arm64v8/debian:${DEBIAN_DISTRO}
 
 ENV TZ=Asia/Tokyo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 ENV DEBIAN_FRONTEND=noninteractive
+ENV RUST_TOOLCHAIN=1.93.0
+ENV PATH=/root/.cargo/bin:${PATH}
 
 RUN apt-get update && apt-get upgrade -y && apt install locales -y && \
     locale-gen en_US en_US.UTF-8 && \
@@ -29,29 +31,45 @@ RUN apt-get update && \
 	python3-lark \
 	build-essential \
 	cmake \
+	ca-certificates \
 	git \
+	libgmock-dev \
+	libgtest-dev \
+	libncurses-dev \
+	liborocos-kdl-dev \
 	python3-flake8 \
 	python3-pip \
 	python3-pytest-cov \
+	python3-argcomplete \
+	python3-osrf-pycommon \
+	python3-psutil \
 	python3-rosdep2 \
+	python3-rosinstall-generator \
 	python3-setuptools \
+	python3-yaml \
 	wget \
 	curl \
 	gnupg \
 	lsb-release \
 	qtbase5-dev \
-	python3-sip \
 	libopencv-dev \
 	pyqt5-dev \
 	libbullet-dev \
-	sip-dev \
+	libyaml-dev \
 	libxaw7-dev \
 	python3-pyqt5 \
+	python3-pyqt5.sip \
 	python3-numpy \
+	pybind11-dev \
+	python3-pykdl \
 	python3-pydot \
 	python3-pyqt5.qtsvg \
 	python3-netifaces \
 	python3-empy \
+	python3-sipbuild \
+	python3-pyqtbuild \
+	sip-tools \
+	shiboken6 \
 	libfreetype-dev \
 	libresource-retriever-dev \
 	python3-jinja2 \
@@ -59,6 +77,9 @@ RUN apt-get update && \
 	liblttng-ust-dev \
 	# jazzy
 	liblttng-ctl-dev \
+	# lyrical/trixie
+	libiceoryx-posh2 \
+	nlohmann-json3-dev \
 	# YOLOX
 	libboost-python-dev \
 	# Realsense
@@ -85,6 +106,9 @@ RUN apt-get update && \
 	libcap-dev \
 	# stackchan
 	libserial-dev \
+	libexpected-dev \
+	libassimp-dev \
+	liboctomap-dev \
 	# autoware-core
 	libsimde-dev \
 	libmatio-dev \
@@ -92,6 +116,11 @@ RUN apt-get update && \
 	libpugixml-dev \
 	libgeographiclib-dev && \
 	rm -rf /var/lib/apt/lists/*
+
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | \
+	sh -s -- -y --profile minimal --default-toolchain ${RUST_TOOLCHAIN} && \
+	rustc --version && \
+	cargo --version
 
 # RUN pip install --upgrade pip
 
@@ -112,23 +141,6 @@ RUN pip install --break-system-packages \
 	importlib-resources \
 	lark-parser \
 	cython
-
-# cmake upgrade
-RUN wget https://github.com/Kitware/CMake/releases/download/v3.27.2/cmake-3.27.2-linux-aarch64.sh -O cmake_install.sh && \
-	chmod +x cmake_install.sh && \
-	./cmake_install.sh --skip-license --prefix=/usr/local
-
-# OpenVINO
-RUN wget https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/openvino-2022-raspbian-bullseye-arm64-0.1.0-20221219.deb && \
-	apt-get install -y ./openvino-2022-raspbian-bullseye-arm64-0.1.0-20221219.deb
-
-# realsense
-# RUN wget https://s3.ap-northeast-1.wasabisys.com/download-raw/dpkg/librealsense/debian/bookworm/librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
-# 	apt-get install -y ./librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
-# 	rm ./librealsense-v4l2-backend-app-bookworm-2.56.3-arm64.deb && \
-# 	echo "export realsense2_DIR=/usr/local/lib/aarch64-linux-gnu/cmake/realsense2/" >> ~/.bashrc && \
-# 	echo "export OpenCV_DIR=/usr/lib/aarch64-linux-gnu/cmake/opencv4/" >> ~/.bashrc
-
 
 RUN pip install --break-system-packages vcstool colcon-common-extensions
 

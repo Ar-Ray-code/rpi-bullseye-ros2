@@ -6,11 +6,11 @@ repositories:
   diagnostics:
     type: git
     url: https://github.com/ros/diagnostics.git
-    version: ros2-jazzy
+    version: ros2
   laser_proc:
     type: git
     url: https://github.com/ros-perception/laser_proc.git
-    version: 1.0.2
+    version: 1.0.3
   urg_c:
     type: git
     url: https://github.com/ros-drivers/urg_c.git

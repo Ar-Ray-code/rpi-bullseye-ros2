@@ -2,7 +2,7 @@ repositories:
   diagnostics:
     type: git
     url: https://github.com/ros/diagnostics.git
-    version: ros2-jazzy
+    version: ros2
   velodyne:
     type: git
     url: https://github.com/ros-drivers/velodyne.git
@@ -10,4 +10,4 @@ repositories:
   angles:
     type: git
     url: https://github.com/ros/angles.git
-    version: 1.16.0
+    version: 1.16.1

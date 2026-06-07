@@ -17,49 +17,32 @@ Build ROS2 for Raspbian
 
 ## Support
 
-### Latest : ros2-0.3.2
+For instructions on installing previous versions, please check the respective branch.
 
-[ros2-0.3.2](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.3.2)
+### Latest : v0.3.3
 
-| Distro | Debian | arm64-desktop | arm64-full |
-| --- | --- | --- | --- |
-| jazzy | bookworm | [URL](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/ros-jazzy-desktop-0.3.2_20240525_arm64.deb) |
-| iron | bullseye | [URL](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/ros-iron-desktop-0.3.2_20230611_arm64.deb)
-| iron | bookworm | [URL](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/ros-iron-desktop-0.3.2_20230929_arm64.deb)
-| humble | bullseye | [URL](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/ros-humble-desktop-0.3.1_arm64.deb)
+[v0.3.3](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/v0.3.3)
 
-### Install (bullseye)
+| Distro | Debian | arm64-desktop |
+| --- | --- | --- |
+| lyrical | trixie | [URL](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/v0.3.3/ros-lyrical-desktop-0.3.3_20260607_arm64.deb) |
 
-- OS   : RaspberryPi OS bullseye arm64
-- ROS2 : ROS2 Humble
+### Install (trixie)
 
-```bash
-wget https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.1/ros-humble-desktop-0.3.1_20221218_arm64.deb
-sudo apt install ./ros-humble-desktop-0.3.1_20221218_arm64.deb
-sudo pip install vcstool colcon-common-extensions
-```
-
-### Install (bookworm)
-
-- OS   : RaspberryPi OS bookworm arm64
-- ROS2 : ROS2 jazzy
-
-> When using Rviz2, switch the display server from Wayland to X11.
-
-
+- OS   : Raspberry Pi OS / Debian trixie arm64
+- ROS2 : ROS2 lyrical
 
 ```bash
-wget https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/ros2-0.3.2/ros-jazzy-desktop-0.3.2_20240525_arm64.deb
-sudo apt install ./ros-jazzy-desktop-0.3.2_20240525_arm64.deb
-pip install --break-system-packages empy==3.3.4
-sudo pip install --break-system-packages vcstool colcon-common-extensions
+wget https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/download/v0.3.3/ros-lyrical-desktop-0.3.3_20260607_arm64.deb
+sudo apt install ./ros-lyrical-desktop-0.3.3_20260607_arm64.deb
+
+sudo pip install --break-system-packages vcstool #A tool that can be used when you want to reference a repository from a .repos file.
 ```
 
 ## Uninstall
 
 ```bash
-sudo apt remove ros-${DISTRO}-desktop
-# e.g. sudo apt remove ros-humble-desktop
+sudo apt remove ros-lyrical-desktop
 ```
 
 <br>
@@ -67,93 +50,14 @@ sudo apt remove ros-${DISTRO}-desktop
 ### Load ROS2
 
 ```bash
-source /opt/ros/${DISTRO}/setup.bash
-# e.g. source /opt/ros/humble/setup.bash
+source /opt/ros/lyrical/setup.bash
 ```
 
 <br>
-
-<details><summary>ros2-0.2.0</summary>
-
-[ros2-0.2.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.2.0)
-
-| Distro | aarch64 |
-| --- | --- |
-| humble | ✔ |
-| galactic | |
-
-### Install
-
-- OS   : RaspberryPi OS bullseye aarch64
-- ROS2 : ROS2 Humble
-
-```bash
-# (humble, aarch64)
-curl -O https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash
-# bash install.bash <distro> <arch> <version> <install-dir>
-bash install.bash humble aarch64 0.2.0 /opt/ros
-```
-
-<br>
-
-</details>
-
-<details><summary>ros2-0.1.0</summary>
-
-<br>
-
-[ros2-0.1.0](https://github.com/Ar-Ray-code/rpi-bullseye-ros2/releases/tag/ros2-0.1.0)
-
-
-### ❌ Excluded packages ❌
-
-- RViz
-- rosbag
-- rqt
-
-<br>
-
-| Distro | aarch64 | arm7l |
-| --- | --- | --- |
-| humble | ✔ | ✔ |
-| galactic | | ✔ |
-
-### Install
-
-- OS   : RaspberryPi OS bullseye aarch64
-- ROS2 : ROS2 Humble
-
-```bash
-# (humble, aarch64)
-wget https://raw.githubusercontent.com/Ar-Ray-code/rpi-bullseye-ros2/main/install.bash
-bash install.bash humble aarch64 0.1.0 /opt/ros
-
-# galactic, arm7l
-# bash install.bash galactic arm7l 0.1.0 /opt/ros
-```
-
-### Load ROS2
-
-```bash
-source /opt/ros/humble/setup.bash
-```
-
-<br>
-
-</details>
-
-<br>
-
 
 ## Build ROS2
 
 - [README](./build/README.md)
-
-<br>
-
-## Cross compile 🛠️
-
-- [Ar-Ray-code/rpi-bullseye-ros2-xcompile](https://github.com/Ar-Ray-code/rpi-bullseye-ros2-xcompile)
 
 <br>
 

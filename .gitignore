@@ -10,8 +10,10 @@ galactic
 humble
 iron
 jazzy
+lyrical
 rolling
 ros2.repos*
+patches/
 
 deb/
 *.zip

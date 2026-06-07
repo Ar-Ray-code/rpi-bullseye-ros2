@@ -1,6 +1,6 @@
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 
-TARGET_DISTRO=${1-"jazzy"}
+TARGET_DISTRO=${1-"lyrical"}
 ARCH=${2-"arm64"}
 ROS_INSTALL_DIR=${3-"/opt/ros"}
 VERSION=$(cat ${SCRIPT_DIR}/config/version.txt)
@@ -26,6 +26,7 @@ DEB_ROOT=${SCRIPT_DIR}/deb/${DEB_NAME}
 INSTALL_DIR=${DEB_ROOT}/opt/ros/${TARGET_DISTRO}
 
 # copy files to deb folder ---------------------------------------------------------------
+rm -rf ${DEB_ROOT}
 mkdir -p ${INSTALL_DIR}
 cd ${INSTALL_DIR}
 cp -r ${TARGET_DIR}/* ${INSTALL_DIR}/
@@ -44,7 +45,7 @@ echo "Priority: optional" >> ${CONTROL_FILE}
 echo "Architecture: ${ARCH}" >> ${CONTROL_FILE}
 echo "Depends: $DEPENDS" >> ${CONTROL_FILE}
 echo "Maintainer: Ar-Ray-code <ray255ar@gmail.com>" >> ${CONTROL_FILE}
-echo "Description: ROS2 $TARGET_DISTRO for Raspberry Pi OS Bookworm 64bit" >> ${CONTROL_FILE}
+echo "Description: ROS2 $TARGET_DISTRO for Raspberry Pi OS Trixie 64bit" >> ${CONTROL_FILE}
 
 dpkg-deb --build -Z xz --root-owner-group ${DEB_ROOT} ${SCRIPT_DIR}/deb/${DEB_NAME}.deb
 

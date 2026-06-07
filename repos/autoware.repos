@@ -3,15 +3,15 @@ repositories:
   core/autoware_cmake:
     type: git
     url: https://github.com/autowarefoundation/autoware_cmake.git
-    version: 1.0.1
+    version: 1.1.0
   core/autoware_utils:
     type: git
     url: https://github.com/autowarefoundation/autoware_utils.git
-    version: 1.3.0
+    version: 1.4.2
   core/autoware_lanelet2_extension:
     type: git
     url: https://github.com/autowarefoundation/autoware_lanelet2_extension.git
-    version: 0.6.4
+    version: 0.7.2
   core/autoware_core:
     type: git
     url: https://github.com/autowarefoundation/autoware_core.git
@@ -19,15 +19,15 @@ repositories:
   core/autoware_msgs:
     type: git
     url: https://github.com/autowarefoundation/autoware_msgs.git
-    version: 1.5.0
+    version: 1.11.0
   core/autoware_adapi_msgs:
     type: git
     url: https://github.com/autowarefoundation/autoware_adapi_msgs.git
-    version: 1.7.0
+    version: 1.9.0
   core/autoware_internal_msgs:
     type: git
     url: https://github.com/autowarefoundation/autoware_internal_msgs.git
-    version: 1.8.0
+    version: 1.12.1
   geographic_info:
     type: git
     url: https://github.com/ros-geographic-info/geographic_info.git
@@ -47,7 +47,7 @@ repositories:
   angles:
     type: git
     url: https://github.com/ros/angles.git
-    version: 1.16.0
+    version: 1.16.1
   lanelet2:
     type: git
     url: https://github.com/fzi-forschungszentrum-informatik/lanelet2.git
@@ -59,7 +59,7 @@ repositories:
   perception_pcl:
     type: git
     url: https://github.com/ros-perception/perception_pcl.git
-    version: 2.6.2
+    version: 2.9.0
   pcl_msgs:
     type: git
     url: https://github.com/ros-perception/pcl_msgs.git

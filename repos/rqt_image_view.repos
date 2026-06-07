@@ -2,7 +2,7 @@ repositories:
   ros-perception/image_common:
     type: git
     url: https://github.com/ros-perception/image_common.git
-    version: jazzy
+    version: lyrical
   vision_opencv:
     type: git
     url: https://github.com/ros-perception/vision_opencv.git
@@ -10,4 +10,4 @@ repositories:
   rqt_image_view:
     type: git
     url: https://github.com/ros-visualization/rqt_image_view.git
-    version: 1.3.0
+    version: 2.0.5
